@@ -1,0 +1,1316 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Labs — Virtual Internship Programme</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#060c1f;
+  --navy2:#0a1330;
+  --navy3:#0f1c44;
+  --gold:#22d3ee;
+  --gold2:#67e8f9;
+  --teal:#f472b6;
+  --teal2:#ec4899;
+  --teal-bg:rgba(244,114,182,.1);
+  --cyan:#22d3ee;
+  --pink:#f472b6;
+  --white:#fff;
+  --off:#f5f7fc;
+  --gray:#6b7280;
+  --gray2:#e5e7eb;
+  --text:#0f172a;
+  --muted:#64748b;
+  --red:#ef4444;
+  --purple:#c4b5fd;
+  --r:12px;
+  --r2:8px;
+  --D:'Space Grotesk',sans-serif;
+  --B:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--B);color:var(--text);background:var(--white);line-height:1.6;font-size:16px;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,22,40,.96);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;border-bottom:1px solid rgba(255,255,255,.06)}
+.nl{font-family:var(--D);font-size:20px;font-weight:700;color:var(--white);display:flex;align-items:center;gap:10px}
+.nl-badge{background:var(--teal);color:var(--white);font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:.8px}
+.nm{display:flex;gap:28px;list-style:none}
+.nm a{color:rgba(255,255,255,.65);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+.nm a:hover{color:var(--white)}
+.n-cta{background:var(--gold);color:var(--navy);padding:10px 24px;border-radius:6px;font-weight:700;font-size:14px;font-family:var(--D);text-decoration:none;transition:background .2s;white-space:nowrap}
+.n-cta:hover{background:var(--gold2)}
+@media(max-width:768px){.nm{display:none}}
+
+/* ── HERO ── */
+.hero{background:var(--navy);padding:140px 5% 100px;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center}
+.hero-bg1{position:absolute;top:-10%;right:-5%;width:700px;height:700px;background:radial-gradient(circle,rgba(244,114,182,.12) 0%,transparent 65%);pointer-events:none}
+.hero-bg2{position:absolute;bottom:-20%;left:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(34,211,238,.07) 0%,transparent 65%);pointer-events:none}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:60px 60px;pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;width:100%}
+.intern-pill{display:inline-flex;align-items:center;gap:10px;background:rgba(244,114,182,.12);border:1px solid rgba(244,114,182,.3);color:var(--teal);padding:8px 18px;border-radius:100px;font-size:13px;font-weight:700;margin-bottom:32px;font-family:var(--D);letter-spacing:.3px}
+.intern-pill::before{content:'';width:8px;height:8px;background:var(--teal);border-radius:50%;display:inline-block;animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
+.hero-ticker{display:flex;align-items:center;gap:10px;margin-bottom:24px;height:22px}
+.tick-prefix{color:var(--gold);font-family:var(--D);font-weight:700;font-size:15px}
+.tick-text{font-family:var(--D);font-size:15px;font-weight:600;color:rgba(255,255,255,.8);transition:opacity .3s ease;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tick-cursor{display:inline-block;width:2px;height:15px;background:var(--gold);margin-left:2px;animation:blink 1s step-end infinite;vertical-align:middle}
+@keyframes blink{50%{opacity:0}}
+.hero h1{font-family:var(--D);font-size:clamp(36px,5.2vw,68px);font-weight:700;color:var(--white);line-height:1.06;letter-spacing:-1.5px;max-width:900px;margin-bottom:28px}
+.hero h1 .accent{color:var(--gold)}
+.hero h1 .accent2{color:var(--teal)}
+.hero-sub{color:rgba(255,255,255,.6);font-size:18px;max-width:600px;margin-bottom:20px;line-height:1.7}
+.hero-hook{background:rgba(34,211,238,.1);border-left:3px solid var(--gold);padding:14px 20px;border-radius:0 8px 8px 0;margin-bottom:44px;max-width:600px}
+.hero-hook p{color:rgba(255,255,255,.8);font-size:15px;line-height:1.6}
+.hero-hook strong{color:var(--gold)}
+.hero-btns{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:64px}
+.btn-p{background:var(--gold);color:var(--navy);padding:15px 34px;border-radius:8px;font-weight:700;font-size:16px;text-decoration:none;font-family:var(--D);transition:background .2s,transform .15s;display:inline-block}
+.btn-p:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-s{color:rgba(255,255,255,.75);padding:15px 24px;border-radius:8px;border:1px solid rgba(255,255,255,.18);font-size:15px;text-decoration:none;transition:all .2s;display:inline-block}
+.btn-s:hover{border-color:rgba(255,255,255,.5);color:var(--white)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden;max-width:780px}
+.hs{padding:24px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.06)}
+.hs:last-child{border-right:none}
+.hs-n{font-family:var(--D);font-size:32px;font-weight:700;color:var(--gold);display:block;line-height:1;margin-bottom:6px}
+.hs-l{font-size:12px;color:rgba(255,255,255,.45);font-weight:500}
+@media(max-width:600px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ── SECTIONS ── */
+section{padding:100px 5%}
+.si{max-width:1100px;margin:0 auto}
+.ey{font-family:var(--D);font-size:12px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal);margin-bottom:14px}
+.st{font-family:var(--D);font-size:clamp(28px,3.5vw,46px);font-weight:700;color:var(--text);line-height:1.12;letter-spacing:-.8px;margin-bottom:16px}
+.ss{font-size:17px;color:var(--muted);max-width:620px;line-height:1.7;margin-bottom:56px}
+.dark-ey{color:var(--gold)}
+.dark-st{color:var(--white)}
+.dark-ss{color:rgba(255,255,255,.5)}
+
+/* ── HOOK BANNER ── */
+.hook-banner{background:linear-gradient(135deg,var(--navy2) 0%,#0a2540 100%);border:1px solid rgba(244,114,182,.2);border-radius:var(--r);padding:40px 48px;margin-bottom:56px;position:relative;overflow:hidden}
+.hook-banner::after{content:'"';position:absolute;right:40px;top:-10px;font-size:200px;color:rgba(244,114,182,.05);font-family:Georgia,serif;pointer-events:none}
+.hook-banner h2{font-family:var(--D);font-size:clamp(22px,2.5vw,32px);color:var(--white);font-weight:700;line-height:1.3;margin-bottom:12px;max-width:700px}
+.hook-banner h2 em{color:var(--teal);font-style:normal}
+.hook-banner p{color:rgba(255,255,255,.55);font-size:16px;max-width:600px;line-height:1.65}
+
+/* ── TWO MONTH TIMELINE ── */
+.months{background:var(--navy)}
+.months-wrap{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:700px){.months-wrap{grid-template-columns:1fr}}
+.month-card{border-radius:var(--r);padding:36px 32px;position:relative;overflow:hidden}
+.m1{background:var(--navy3);border:1px solid rgba(244,114,182,.2)}
+.m2{background:linear-gradient(135deg,#1a0a28 0%,#2d1240 100%);border:2px solid rgba(34,211,238,.3)}
+.month-num{font-family:var(--D);font-size:80px;font-weight:700;color:rgba(255,255,255,.04);position:absolute;top:16px;right:20px;line-height:1;pointer-events:none;user-select:none}
+.month-badge{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:5px 12px;border-radius:100px;margin-bottom:20px;font-family:var(--D)}
+.m1 .month-badge{background:rgba(244,114,182,.15);color:var(--teal);border:1px solid rgba(244,114,182,.3)}
+.m2 .month-badge{background:rgba(34,211,238,.15);color:var(--gold);border:1px solid rgba(34,211,238,.3)}
+.month-card h3{font-family:var(--D);font-size:24px;font-weight:700;color:var(--white);margin-bottom:10px}
+.month-card .mc-sub{color:rgba(255,255,255,.5);font-size:15px;margin-bottom:28px;line-height:1.6}
+.mc-list{list-style:none}
+.mc-list li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:14px;color:rgba(255,255,255,.7)}
+.mc-list li:last-child{border-bottom:none}
+.mc-check{color:var(--teal);font-size:16px;flex-shrink:0;margin-top:1px}
+.m2 .mc-check{color:var(--gold)}
+.stipend-box{background:rgba(34,211,238,.1);border:1px solid rgba(34,211,238,.25);border-radius:var(--r2);padding:18px 20px;margin-top:24px}
+.stipend-box p{color:rgba(255,255,255,.8);font-size:14px;line-height:1.6}
+.stipend-box strong{color:var(--gold)}
+
+/* ── AI ADVANTAGE ── */
+.ai-adv{background:var(--off)}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+@media(max-width:700px){.ai-grid{grid-template-columns:1fr}}
+.ai-text .st{margin-bottom:12px}
+.ai-text .ss{margin-bottom:28px}
+.ai-point{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+.ai-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.ai-icon.t{background:var(--teal-bg)}
+.ai-icon.g{background:rgba(34,211,238,.1)}
+.ai-icon.p{background:rgba(167,139,250,.1)}
+.ai-point h4{font-family:var(--D);font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.ai-point p{font-size:14px;color:var(--muted);line-height:1.6}
+.ai-visual{background:var(--navy);border-radius:var(--r);padding:32px;position:relative;overflow:hidden}
+.ai-visual::before{content:'';position:absolute;top:-30%;right:-20%;width:250px;height:250px;background:radial-gradient(circle,rgba(167,139,250,.2) 0%,transparent 70%)}
+.code-window{background:rgba(0,0,0,.4);border-radius:8px;padding:20px;font-family:monospace;font-size:13px;line-height:1.8;margin-bottom:20px;border:1px solid rgba(255,255,255,.07)}
+.cw-bar{display:flex;gap:6px;margin-bottom:14px}
+.cw-dot{width:10px;height:10px;border-radius:50%}
+.cl1{color:#98d9b8}.cl2{color:#7dd3fc}.cl3{color:rgba(255,255,255,.4)}.cl4{color:#fbbf24}.cl5{color:#c4b5fd}
+.ai-stat-row{display:flex;gap:12px}
+.ai-stat{flex:1;background:rgba(255,255,255,.05);border-radius:8px;padding:14px;text-align:center;border:1px solid rgba(255,255,255,.07)}
+.ai-stat-n{font-family:var(--D);font-size:22px;font-weight:700;display:block;margin-bottom:4px}
+.ai-stat-l{font-size:12px;color:rgba(255,255,255,.4)}
+
+/* ── GAMIFICATION ── */
+.gamif{background:var(--navy)}
+.gam-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.gam-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:28px 24px;transition:border-color .2s,transform .2s}
+.gam-card:hover{border-color:rgba(244,114,182,.3);transform:translateY(-3px)}
+.gam-emoji{font-size:36px;margin-bottom:16px;display:block}
+.gam-card h3{font-family:var(--D);font-size:16px;font-weight:700;color:var(--white);margin-bottom:8px}
+.gam-card p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.6}
+.leaderboard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:28px;margin-top:40px}
+.lb-title{font-family:var(--D);font-size:14px;font-weight:700;color:var(--gold);letter-spacing:.5px;margin-bottom:20px;text-transform:uppercase;font-size:12px}
+.lb-row{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.lb-row:last-child{border-bottom:none}
+.lb-pos{font-family:var(--D);font-size:16px;font-weight:700;width:28px;text-align:center}
+.pos1{color:var(--gold)}.pos2{color:#94a3b8}.pos3{color:#b87333}
+.lb-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.lb-name{flex:1;font-size:14px;font-weight:600;color:rgba(255,255,255,.85)}
+.lb-xp{font-family:var(--D);font-size:13px;color:var(--teal);font-weight:700}
+.lb-streak{font-size:12px;color:rgba(255,255,255,.35);margin-left:8px}
+
+/* ── RESUME AI TOOL ── */
+.resume-sec{background:var(--off)}
+.resume-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:700px){.resume-wrap{grid-template-columns:1fr}}
+.resume-mock{background:var(--white);border:1px solid var(--gray2);border-radius:var(--r);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.08)}
+.rm-header{background:var(--navy);padding:20px 24px;display:flex;align-items:center;gap:10px}
+.rm-dots{display:flex;gap:6px}
+.rm-dot{width:10px;height:10px;border-radius:50%}
+.rm-title{color:rgba(255,255,255,.5);font-size:13px;margin-left:8px}
+.rm-body{padding:24px}
+.rm-score-ring{display:flex;align-items:center;gap:20px;margin-bottom:20px;padding:16px;background:var(--off);border-radius:8px}
+.score-circle{width:70px;height:70px;border-radius:50%;background:conic-gradient(var(--teal) 0% 82%,rgba(0,0,0,.06) 82% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.score-inner{width:54px;height:54px;border-radius:50%;background:var(--off);display:flex;align-items:center;justify-content:center;font-family:var(--D);font-size:16px;font-weight:700;color:var(--teal)}
+.score-info h4{font-family:var(--D);font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.score-info p{font-size:13px;color:var(--muted)}
+.rm-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.rm-tag{font-size:12px;font-weight:600;padding:4px 10px;border-radius:4px;font-family:var(--D)}
+.rt-green{background:#dcfce7;color:#15803d}
+.rt-amber{background:#fef3c7;color:#92400e}
+.rt-red{background:#fee2e2;color:#991b1b}
+.rm-list{list-style:none}
+.rm-list li{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:13px;border-bottom:1px solid var(--gray2);color:var(--muted)}
+.rm-list li:last-child{border-bottom:none}
+.rm-list .ok{color:var(--teal)}.rm-list .warn{color:var(--gold)}.rm-list .bad{color:var(--red)}
+
+/* ── DASHBOARD ── */
+.dash-sec{background:var(--navy)}
+.dash-mock{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);overflow:hidden;margin-top:40px}
+.dash-header{background:rgba(0,0,0,.3);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}
+.dash-header span{font-family:var(--D);font-size:14px;color:rgba(255,255,255,.7);font-weight:600}
+.dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.04)}
+.dash-metric{padding:24px 20px;background:rgba(10,22,40,.8)}
+.dm-n{font-family:var(--D);font-size:28px;font-weight:700;display:block;margin-bottom:4px}
+.dm-l{font-size:12px;color:rgba(255,255,255,.35)}
+.dash-progress{padding:24px;display:grid;grid-template-columns:2fr 1fr;gap:20px}
+@media(max-width:700px){.dash-grid{grid-template-columns:repeat(2,1fr)}.dash-progress{grid-template-columns:1fr}}
+.day-track{background:rgba(0,0,0,.2);border-radius:8px;padding:20px}
+.day-track h4{font-family:var(--D);font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+.days-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:4px}
+.dg-day{aspect-ratio:1;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;font-family:var(--D)}
+.dg-done{background:var(--teal);color:var(--white)}
+.dg-today{background:var(--gold);color:var(--navy)}
+.dg-lock{background:rgba(255,255,255,.06);color:rgba(255,255,255,.2)}
+.skill-bars{background:rgba(0,0,0,.2);border-radius:8px;padding:20px}
+.skill-bars h4{font-family:var(--D);font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.5px;text-transform:uppercase;margin-bottom:14px}
+.sb-item{margin-bottom:12px}
+.sb-label{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,.55);margin-bottom:5px}
+.sb-track{background:rgba(255,255,255,.07);border-radius:100px;height:5px}
+.sb-fill{height:100%;border-radius:100px}
+
+/* ── WHY PAY ── */
+.why-pay{background:var(--off)}
+.pay-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+@media(max-width:700px){.pay-grid{grid-template-columns:1fr}}
+.pay-card{background:var(--navy);border-radius:var(--r);padding:36px;color:var(--white)}
+.pay-card h3{font-family:var(--D);font-size:22px;font-weight:700;color:var(--gold);margin-bottom:20px;line-height:1.3}
+.pay-line{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}
+.pay-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.pay-line p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.65}
+.pay-line strong{color:rgba(255,255,255,.9)}
+.research-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.rs{background:rgba(255,255,255,.05);border-radius:8px;padding:18px;text-align:center;border:1px solid rgba(255,255,255,.07)}
+.rs-n{font-family:var(--D);font-size:30px;font-weight:700;color:var(--teal);display:block;margin-bottom:4px}
+.rs-l{font-size:12px;color:rgba(255,255,255,.4)}
+.research-right .st{margin-bottom:16px}
+.research-right .ss{margin-bottom:32px}
+.value-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--gray2)}
+.value-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.vr-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--teal-bg)}
+.value-row h4{font-family:var(--D);font-size:15px;font-weight:700;color:var(--text);margin-bottom:4px}
+.value-row p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ── CURRICULUM ── */
+.curr{background:var(--white)}
+.phase-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.pc{background:var(--white);border:1px solid var(--gray2);border-radius:var(--r);overflow:hidden}
+.pc-head{padding:20px 24px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--gray2)}
+.pc-num{background:var(--navy);color:var(--gold);font-family:var(--D);font-size:11px;font-weight:700;padding:4px 10px;border-radius:5px;letter-spacing:.5px}
+.pc-head h3{font-family:var(--D);font-size:16px;font-weight:700;color:var(--text)}
+.pc-body{padding:8px 24px 16px}
+.pc-li{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--gray2);font-size:14px}
+.pc-li:last-child{border-bottom:none}
+.pc-day{font-family:var(--D);font-size:11px;font-weight:700;color:var(--teal);min-width:44px}
+.pc-day.free{color:var(--gold)}
+.pc-name{font-weight:600;color:var(--text);display:block;margin-bottom:2px}
+.pc-desc{color:var(--muted);font-size:12px}
+
+/* ── PROJECTS ── */
+.proj{background:var(--navy)}
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.proj-scroll{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.proj-scroll .pj{scroll-snap-align:start;min-width:280px;flex:0 0 280px}
+.proj-scroll::-webkit-scrollbar{height:6px}
+.proj-scroll::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:10px}
+.proj-hint{font-size:12px;color:rgba(255,255,255,.3);font-family:var(--D);font-weight:600;margin-top:14px;display:flex;align-items:center;gap:6px}
+.pj{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:28px 24px;transition:border-color .2s}
+.pj:hover{border-color:rgba(244,114,182,.35)}
+.pj-n{font-family:var(--D);font-size:52px;font-weight:700;color:rgba(34,211,238,.15);line-height:1;margin-bottom:8px}
+.pj h3{font-family:var(--D);font-size:17px;font-weight:700;color:var(--white);margin-bottom:8px}
+.pj p{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:16px;line-height:1.6}
+.pj-tags{display:flex;gap:6px;flex-wrap:wrap}
+.pj-tag{background:rgba(255,255,255,.07);color:rgba(255,255,255,.55);font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;font-family:var(--D)}
+
+/* ── BENEFITS ── */
+.benefits{background:var(--off)}
+.ben-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.bn{background:var(--white);border:1px solid var(--gray2);border-radius:var(--r);padding:28px 24px;border-top:3px solid var(--teal)}
+.bn:nth-child(2){border-top-color:var(--gold)}
+.bn:nth-child(3){border-top-color:var(--purple)}
+.bn:nth-child(4){border-top-color:#ec4899}
+.bn:nth-child(5){border-top-color:#14b8a6}
+.bn:nth-child(6){border-top-color:#f97316}
+.bn-icon{font-size:28px;margin-bottom:14px;display:block}
+.bn h3{font-family:var(--D);font-size:16px;font-weight:700;color:var(--text);margin-bottom:8px}
+.bn p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ── PRICING ── */
+.pricing{background:var(--white)}
+.price-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media(max-width:700px){.price-wrap{grid-template-columns:1fr}}
+.price-card{background:var(--navy);border-radius:var(--r);padding:40px;color:var(--white)}
+.price-big{font-family:var(--D);font-size:68px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:4px}
+.price-gst{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:28px}
+.price-fl{list-style:none;margin-bottom:32px}
+.price-fl li{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:15px;color:rgba(255,255,255,.75)}
+.price-fl li:last-child{border-bottom:none}
+.pf-ck{color:var(--teal);font-size:17px;flex-shrink:0}
+.price-btn{width:100%;background:var(--gold);color:var(--navy);border:none;padding:16px;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;font-family:var(--D);transition:background .2s}
+.price-btn:hover{background:var(--gold2)}
+.cmp-table{width:100%;border-collapse:collapse}
+.cmp-table th{font-family:var(--D);font-size:12px;font-weight:700;color:var(--muted);text-align:left;padding:10px 12px;border-bottom:2px solid var(--gray2);letter-spacing:.3px}
+.cmp-table th.hl{color:var(--teal)}
+.cmp-table td{padding:12px 12px;font-size:14px;border-bottom:1px solid var(--gray2);color:var(--muted);vertical-align:middle}
+.cmp-table td.rl{font-weight:600;color:var(--text)}
+.cmp-table td.hl{color:var(--teal);font-weight:700}
+.cmp-table tr:last-child td{border-bottom:none}
+
+/* ── MARKET ── */
+.market{background:var(--off)}
+.tam-g{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:700px){.tam-g{grid-template-columns:1fr}}
+.tam{border-radius:var(--r);padding:32px 28px;text-align:center}
+.t1{background:var(--navy)}.t2{background:var(--navy2)}.t3{background:var(--gold)}
+.tam-l{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block}
+.t1 .tam-l,.t2 .tam-l{color:rgba(255,255,255,.4)}.t3 .tam-l{color:rgba(10,22,40,.5)}
+.tam-n{font-family:var(--D);font-size:38px;font-weight:700;line-height:1;margin-bottom:12px;display:block}
+.t1 .tam-n,.t2 .tam-n{color:var(--white)}.t3 .tam-n{color:var(--navy)}
+.tam-d{font-size:14px;line-height:1.6}
+.t1 .tam-d,.t2 .tam-d{color:rgba(255,255,255,.45)}.t3 .tam-d{color:rgba(10,22,40,.6)}
+
+/* ── SOCIAL PROOF / HOOKS ── */
+.proof{background:var(--navy)}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.proof-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:24px;position:relative}
+.proof-card::before{content:'"';font-family:Georgia,serif;font-size:60px;color:var(--teal);position:absolute;top:10px;right:18px;line-height:1;opacity:.3}
+.proof-stars{color:var(--gold);font-size:13px;margin-bottom:10px;letter-spacing:2px}
+.proof-card p{font-size:14px;color:rgba(255,255,255,.65);line-height:1.7;margin-bottom:20px;font-style:italic}
+.proof-author{display:flex;align-items:center;gap:10px}
+.pa-av{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:var(--white);flex-shrink:0}
+.pa-name{font-family:var(--D);font-size:14px;font-weight:700;color:rgba(255,255,255,.85)}
+.pa-role{font-size:12px;color:rgba(255,255,255,.35)}
+
+/* ── FINAL CTA ── */
+.fcta{background:var(--navy);padding:120px 5%;text-align:center;position:relative;overflow:hidden}
+.fcta::before{content:'LABS';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--D);font-size:340px;font-weight:700;color:rgba(255,255,255,.02);pointer-events:none;user-select:none;white-space:nowrap}
+.fcta-inner{position:relative;z-index:1;max-width:680px;margin:0 auto}
+.fcta-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(34,211,238,.12);border:1px solid rgba(34,211,238,.25);color:var(--gold2);padding:8px 20px;border-radius:100px;font-size:13px;font-weight:700;margin-bottom:28px;font-family:var(--D)}
+.fcta h2{font-family:var(--D);font-size:clamp(32px,4.5vw,58px);font-weight:700;color:var(--white);line-height:1.08;letter-spacing:-1.2px;margin-bottom:20px}
+.fcta h2 em{color:var(--gold);font-style:normal}
+.fcta p{color:rgba(255,255,255,.5);font-size:17px;margin-bottom:44px;line-height:1.7}
+.fcta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{background:#05101f;padding:48px 5%;color:rgba(255,255,255,.35);font-size:14px}
+.fi{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.fl{font-family:var(--D);font-size:18px;font-weight:700;color:var(--white)}
+.fl span{color:var(--gold)}
+.flinks{display:flex;gap:24px;flex-wrap:wrap}
+.flinks a{color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--white)}
+
+/* ── BADGE WALL ── */
+.badge-wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:36px}
+.badge-chip{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r2);padding:18px 14px;text-align:center;transition:transform .2s,border-color .2s}
+.badge-chip:hover{transform:translateY(-3px)}
+.badge-ic{font-size:26px;display:block;margin-bottom:10px}
+.badge-chip h5{font-family:var(--D);font-size:12.5px;font-weight:700;color:rgba(255,255,255,.85);margin-bottom:4px;line-height:1.3}
+.badge-rarity{font-size:10px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:2px 8px;border-radius:100px;display:inline-block}
+.r-common{background:rgba(255,255,255,.08);color:rgba(255,255,255,.5)}
+.r-rare{background:rgba(34,211,238,.15);color:var(--cyan)}
+.r-epic{background:rgba(167,139,250,.15);color:var(--purple)}
+.r-legendary{background:rgba(244,114,182,.18);color:var(--pink)}
+.bc-rare{border-color:rgba(34,211,238,.3)}
+.bc-epic{border-color:rgba(167,139,250,.3)}
+.bc-legendary{border-color:rgba(244,114,182,.35);background:rgba(244,114,182,.05)}
+
+/* ── LIVE EDITOR DEMO ── */
+.editor-sec{background:var(--off)}
+.editor-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:48px}
+@media(max-width:850px){.editor-wrap{grid-template-columns:1fr}}
+.editor-panel{background:var(--navy);border-radius:var(--r);overflow:hidden;box-shadow:0 20px 60px rgba(6,12,31,.25)}
+.ed-bar{background:rgba(0,0,0,.35);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.06)}
+.ed-tabs{display:flex;gap:4px}
+.ed-tab{font-size:12px;font-family:var(--D);font-weight:600;color:rgba(255,255,255,.4);padding:6px 14px;border-radius:6px}
+.ed-tab.on{background:rgba(34,211,238,.12);color:var(--cyan)}
+.ed-run{background:var(--cyan);color:var(--navy);font-family:var(--D);font-size:12px;font-weight:700;padding:7px 16px;border-radius:6px;border:none;display:flex;align-items:center;gap:6px}
+.ed-body{padding:22px 24px;font-family:'SF Mono',Menlo,monospace;font-size:13px;line-height:1.85;color:rgba(255,255,255,.85)}
+.ln{color:rgba(255,255,255,.25);display:inline-block;width:20px;user-select:none}
+.tok-kw{color:#7dd3fc}.tok-fn{color:#fbbf24}.tok-str{color:var(--pink)}.tok-cm{color:rgba(255,255,255,.35)}.tok-var{color:#98d9b8}
+.ed-output{background:rgba(0,0,0,.3);margin:0 24px 22px;border-radius:8px;padding:14px 16px;border:1px solid rgba(255,255,255,.06)}
+.ed-output-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px}
+.ed-output-line{font-family:monospace;font-size:12.5px;color:#86efac}
+.quiz-mock{background:var(--white);border:1px solid var(--gray2);border-radius:var(--r);padding:26px;box-shadow:0 20px 60px rgba(15,23,42,.06)}
+.quiz-mock-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.quiz-mock-h h4{font-family:var(--D);font-size:14px;font-weight:700;color:var(--text)}
+.quiz-mock-h span{font-size:12px;color:var(--muted);font-family:var(--D);font-weight:600}
+.qopt{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:8px;border:1.5px solid var(--gray2);margin-bottom:10px;font-size:13.5px;color:var(--text)}
+.qopt.correct{border-color:var(--cyan);background:rgba(34,211,238,.07)}
+.qopt.wrong{border-color:var(--red);background:rgba(239,68,68,.06)}
+.qdot{width:18px;height:18px;border-radius:50%;border:2px solid var(--gray2);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700}
+.qopt.correct .qdot{border-color:var(--cyan);background:var(--cyan);color:var(--navy)}
+.qopt.wrong .qdot{border-color:var(--red);background:var(--red);color:var(--white)}
+.quiz-exp{background:var(--off);border-radius:8px;padding:12px 14px;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.6}
+.quiz-exp strong{color:var(--text)}
+
+/* ── CERTIFICATES ── */
+.cert-sec{background:var(--navy)}
+.cert-row{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:44px}
+@media(max-width:1000px){.cert-row{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cert-row{grid-template-columns:1fr}}
+.cert-card{border-radius:var(--r);padding:24px 20px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08);display:flex;flex-direction:column;min-height:100%}
+.cert-tier{font-family:var(--D);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;padding:4px 0}
+.cert-card h4{font-family:var(--D);font-size:16px;font-weight:700;color:var(--white);margin-bottom:10px;line-height:1.25}
+.cert-card p{font-size:12.5px;color:rgba(255,255,255,.45);line-height:1.6;flex:1}
+.cert-card .ck{margin-top:16px;font-size:11px;color:rgba(255,255,255,.3);font-family:var(--D);font-weight:600}
+.cc1{border-top:3px solid rgba(255,255,255,.25)}
+.cc2{border-top:3px solid var(--cyan)}
+.cc3{border-top:3px solid #67e8f9}
+.cc4{border-top:3px solid var(--purple)}
+.cc5{border-top:3px solid var(--pink);background:linear-gradient(160deg,rgba(244,114,182,.08),rgba(255,255,255,.035))}
+.verify-box{margin-top:40px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:var(--r);padding:24px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.verify-box input{flex:1;min-width:220px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:12px 16px;color:var(--white);font-family:monospace;font-size:13px}
+.verify-box input::placeholder{color:rgba(255,255,255,.3)}
+.verify-btn{background:var(--cyan);color:var(--navy);font-family:var(--D);font-weight:700;font-size:13px;padding:12px 24px;border-radius:8px;border:none;white-space:nowrap}
+.verify-label{font-size:13px;color:rgba(255,255,255,.5);width:100%;margin-bottom:-4px}
+
+/* ── COMMUNITY ── */
+.comm-sec{background:var(--off)}
+.comm-wrap{background:var(--white);border:1px solid var(--gray2);border-radius:var(--r);overflow:hidden;margin-top:44px;box-shadow:0 20px 60px rgba(15,23,42,.06)}
+.comm-post{padding:22px 26px;border-bottom:1px solid var(--gray2)}
+.comm-post:last-child{border-bottom:none}
+.comm-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.comm-av{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:var(--white);flex-shrink:0}
+.comm-name{font-weight:700;font-size:13.5px;color:var(--text)}
+.comm-tag{font-size:11px;color:var(--muted)}
+.comm-q{font-size:14px;color:var(--text);line-height:1.6;margin-bottom:12px}
+.comm-reply{margin-left:42px;padding:12px 16px;background:var(--off);border-radius:8px;border-left:3px solid var(--cyan);font-size:13px;color:var(--muted);line-height:1.6}
+.comm-reply strong{color:var(--text)}
+.official-pill{background:rgba(34,211,238,.12);color:#0891b2;font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;margin-left:6px;letter-spacing:.3px}
+
+/* ── UTILITY ── */
+.teal-txt{color:var(--teal)}
+.gold-txt{color:var(--gold)}
+
+/* ── MARQUEE ── */
+.marquee{background:var(--navy2);overflow:hidden;white-space:nowrap;padding:16px 0;border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07)}
+.marquee-track{display:inline-block;animation:marquee 32s linear infinite}
+.marquee-track span{font-family:var(--D);font-size:14px;font-weight:600;color:rgba(255,255,255,.45);margin:0 22px;white-space:nowrap}
+.marquee-track span.hl{color:var(--gold)}
+.marquee-track span.hl2{color:var(--teal)}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── QUOTE BANNER ── */
+.quote-banner{padding:80px 5%;text-align:center;position:relative;overflow:hidden}
+.quote-banner.on-dark{background:var(--navy)}
+.quote-banner.on-light{background:var(--white)}
+.qb-mark{font-family:Georgia,serif;font-size:80px;line-height:1;color:var(--gold);opacity:.5;margin-bottom:4px}
+.qb-text{font-family:var(--D);font-size:clamp(22px,3vw,36px);font-weight:700;line-height:1.35;max-width:880px;margin:0 auto 18px;letter-spacing:-.4px}
+.on-dark .qb-text{color:var(--white)}
+.on-light .qb-text{color:var(--text)}
+.qb-text em{color:var(--gold);font-style:normal}
+.qb-text .pink-em{color:var(--teal);font-style:normal}
+.qb-sub{font-size:14px;font-family:var(--D);font-weight:600;letter-spacing:.4px}
+.on-dark .qb-sub{color:rgba(255,255,255,.4)}
+.on-light .qb-sub{color:var(--muted)}
+
+/* ── SECTION BLOBS ── */
+.sec-blob{position:absolute;border-radius:50%;pointer-events:none;filter:blur(40px)}
+.gamif{position:relative;overflow:hidden}
+.cert-sec{position:relative;overflow:hidden}
+
+/* ── GUARANTEE RIBBON / MONTH CONTRAST ── */
+.month-vs{display:flex;align-items:center;justify-content:center;gap:16px;margin:0 0 -10px;position:relative;z-index:2}
+.month-vs-line{flex:1;height:1px;background:rgba(255,255,255,.1);max-width:160px}
+.month-vs-badge{font-family:var(--D);font-size:12px;font-weight:700;letter-spacing:1.5px;color:rgba(255,255,255,.35);padding:8px 18px;border:1px solid rgba(255,255,255,.15);border-radius:100px}
+.month-tag{display:block;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-top:2px;opacity:.7}
+.guarantee-ribbon{position:absolute;top:18px;right:-34px;background:var(--gold);color:var(--navy);font-family:var(--D);font-size:11px;font-weight:700;padding:5px 40px;transform:rotate(40deg);letter-spacing:.5px;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.guarantee-callout{background:linear-gradient(135deg,rgba(244,114,182,.12),rgba(34,211,238,.08));border:1px solid rgba(244,114,182,.3);border-radius:var(--r2);padding:16px 20px;margin-top:14px;display:flex;align-items:center;gap:12px}
+.guarantee-callout .gc-ic{font-size:22px;flex-shrink:0}
+.guarantee-callout p{color:rgba(255,255,255,.85);font-size:13.5px;line-height:1.55;margin:0}
+.guarantee-callout strong{color:var(--gold)}
+
+/* ── CURRICULUM EXPLORER (sidebar) ── */
+.curr-explorer{display:grid;grid-template-columns:260px 1fr;gap:0;border:1px solid var(--gray2);border-radius:var(--r);overflow:hidden;margin-top:44px;background:var(--white)}
+@media(max-width:800px){.curr-explorer{grid-template-columns:1fr}}
+.curr-sidebar{background:var(--off);border-right:1px solid var(--gray2);padding:10px}
+@media(max-width:800px){.curr-sidebar{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid var(--gray2);padding:10px;gap:8px;-webkit-overflow-scrolling:touch}}
+.cs-item{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:8px;cursor:pointer;transition:background .15s;margin-bottom:4px}
+@media(max-width:800px){.cs-item{flex-shrink:0;min-width:188px;margin-bottom:0}}
+.cs-item:hover{background:rgba(34,211,238,.06)}
+.cs-item.active{background:var(--navy)}
+.cs-num{width:30px;height:30px;border-radius:8px;background:rgba(34,211,238,.12);color:var(--gold2);display:flex;align-items:center;justify-content:center;font-family:var(--D);font-size:12px;font-weight:700;flex-shrink:0}
+.cs-item.active .cs-num{background:var(--gold);color:var(--navy)}
+.cs-item.final .cs-num{background:linear-gradient(135deg,var(--teal),var(--purple));color:var(--white)}
+.cs-meta{min-width:0}
+.cs-meta h5{font-family:var(--D);font-size:13px;font-weight:700;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cs-item.active .cs-meta h5{color:var(--white)}
+.cs-meta span{font-size:11px;color:var(--muted)}
+.cs-item.active .cs-meta span{color:rgba(255,255,255,.45)}
+.cs-final-tag{font-size:9px;font-weight:700;letter-spacing:.5px;color:var(--teal);background:rgba(244,114,182,.12);padding:1px 6px;border-radius:100px;margin-left:6px;text-transform:uppercase}
+.curr-content{padding:32px 36px}
+@media(max-width:600px){.curr-content{padding:24px 20px}}
+.cs-panel{display:none}
+.cs-panel.active{display:block;animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.cs-panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;flex-wrap:wrap;gap:10px}
+.cs-panel-head h3{font-family:var(--D);font-size:22px;font-weight:700;color:var(--text)}
+.cs-panel-badge{font-family:var(--D);font-size:11px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;background:var(--navy);color:var(--gold);padding:5px 12px;border-radius:100px}
+.cs-panel-sub{font-size:14px;color:var(--muted);margin-bottom:24px;line-height:1.6;max-width:560px}
+.cs-day-list{display:flex;flex-direction:column;gap:2px}
+.cs-day{display:flex;align-items:flex-start;gap:14px;padding:13px 4px;border-bottom:1px solid var(--gray2)}
+.cs-day:last-child{border-bottom:none}
+.cs-day-n{font-family:var(--D);font-size:11px;font-weight:700;color:var(--gold2);background:rgba(34,211,238,.1);padding:3px 9px;border-radius:5px;flex-shrink:0;margin-top:1px}
+.cs-day-n.fr{color:var(--text);background:var(--gold)}
+.cs-day-body h6{font-family:var(--D);font-size:14px;font-weight:700;color:var(--text);margin-bottom:2px}
+.cs-day-body p{font-size:12.5px;color:var(--muted)}
+.cs-final-banner{margin-top:22px;background:linear-gradient(135deg,rgba(244,114,182,.08),rgba(167,139,250,.08));border:1px solid rgba(244,114,182,.25);border-radius:var(--r2);padding:16px 18px;font-size:13px;color:var(--muted);line-height:1.6}
+.cs-final-banner strong{color:var(--text)}
+
+/* ── RESUME FLOW DIAGRAM ── */
+.resume-flow{display:flex;align-items:stretch;gap:0;margin:40px 0 8px;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.rf-step{background:var(--white);border:1px solid var(--gray2);border-radius:var(--r2);padding:18px 18px;min-width:200px;flex:1}
+.rf-step h6{font-family:var(--D);font-size:12px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--gold2);margin-bottom:8px}
+.rf-step p{font-size:12.5px;color:var(--muted);line-height:1.55}
+.rf-step code{display:block;background:var(--off);border-radius:6px;padding:8px 10px;font-size:11px;margin-top:8px;color:var(--text);font-family:monospace}
+.rf-arrow{display:flex;align-items:center;justify-content:center;min-width:40px;color:var(--gray);font-size:20px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nl">NOVA <span class="nl-badge">LABS</span></div>
+  <ul class="nm">
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#curriculum">Curriculum</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#pricing">Apply</a></li>
+  </ul>
+  <a href="#pricing" class="n-cta">Apply Now — Day 1 Free →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg1"></div>
+  <div class="hero-bg2"></div>
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="intern-pill">Virtual Internship Programme · Cohort 2024</div>
+    <div class="hero-ticker"><span class="tick-prefix">▸</span><span class="tick-text" id="heroTick">Ship 4 live apps. Not 4 PDFs.</span><span class="tick-cursor"></span></div>
+    <h1>The 2-month internship that makes you <span class="accent">hireable</span> —<br>not just <span class="accent2">certifiable</span></h1>
+    <p class="hero-sub">30 days of intensive training. Then 30 days of real project work. Ship 4 live apps, earn a stipend if you perform, and walk out with a portfolio that speaks louder than any degree.</p>
+    <div class="hero-hook">
+      <p>Most bootcamps give you a certificate and wish you luck. <strong>Nova Labs gives you a credential earned through code you actually wrote</strong> — and then puts that code in front of companies who are actively hiring.</p>
+    </div>
+    <div class="hero-btns">
+      <a href="#pricing" class="btn-p">Apply for the Internship →</a>
+      <a href="#programme" class="btn-s">See how it works</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hs"><span class="hs-n">60</span><span class="hs-l">Day programme</span></div>
+      <div class="hs"><span class="hs-n">4</span><span class="hs-l">Live projects built</span></div>
+      <div class="hs"><span class="hs-n">₹1,299</span><span class="hs-l">All-in price</span></div>
+      <div class="hs"><span class="hs-n">Stipend</span><span class="hs-l">For top performers</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>🚀 4 live apps shipped, not screenshots</span>
+    <span class="hl">★ Guaranteed stipend for the top 20%</span>
+    <span>🆓 Day 1 is completely free, no card</span>
+    <span class="hl2">🤖 AI resume builder included for life</span>
+    <span>🏅 30+ badges, real leaderboard rank</span>
+    <span>🔒 Certificates verified publicly</span>
+    <span>💬 Mentor-backed doubt threads</span>
+    <span>🚀 4 live apps shipped, not screenshots</span>
+    <span class="hl">★ Guaranteed stipend for the top 20%</span>
+    <span>🆓 Day 1 is completely free, no card</span>
+    <span class="hl2">🤖 AI resume builder included for life</span>
+    <span>🏅 30+ badges, real leaderboard rank</span>
+    <span>🔒 Certificates verified publicly</span>
+    <span>💬 Mentor-backed doubt threads</span>
+  </div>
+</div>
+
+<!-- HOOK BANNER -->
+<section style="background:var(--off);padding:60px 5%">
+  <div class="si">
+    <div class="hook-banner">
+      <h2>You already have access to ChatGPT, Copilot, and every AI tool on the planet.<br><em>But AI can't save you if you don't understand what you're building.</em></h2>
+      <p>The engineers who will dominate the next decade aren't the ones who avoid AI — they're the ones who deeply understand foundations, so they can direct, debug, and deploy what AI produces. Nova Labs is built for exactly that future.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TWO MONTH PROGRAMME -->
+<section class="months" id="programme">
+  <div class="si">
+    <p class="ey dark-ey">The programme</p>
+    <h2 class="st dark-st">Two months. Two very different missions.</h2>
+    <p class="ss dark-ss">Month 1 is your training ground. Month 2 is your proving ground. Both matter. Only Month 2 determines your stipend.</p>
+    <div class="month-vs">
+      <span class="month-vs-line"></span>
+      <span class="month-vs-badge">THE COURSE → THE INTERNSHIP</span>
+      <span class="month-vs-line"></span>
+    </div>
+    <div class="months-wrap">
+      <div class="month-card m1">
+        <div class="month-num">01</div>
+        <span class="month-badge">Month 1 · Days 1–30<span class="month-tag">This is the course</span></span>
+        <h3>Train like a developer.<br>Think like an engineer.</h3>
+        <p class="mc-sub">30 structured days covering HTML to Docker — every concept converted into something you can deploy, not just describe.</p>
+        <ul class="mc-list">
+          <li><span class="mc-check">✓</span><span>HTML/CSS/JS → React → FastAPI → MongoDB stack</span></li>
+          <li><span class="mc-check">✓</span><span>4 project builds with rubric-based grading</span></li>
+          <li><span class="mc-check">✓</span><span>Live code editor — no setup, code from Day 1</span></li>
+          <li><span class="mc-check">✓</span><span>Auto-evaluated assignments with instant feedback</span></li>
+          <li><span class="mc-check">✓</span><span>Docker, CI/CD, system design, and DSA prep</span></li>
+          <li><span class="mc-check">✓</span><span>AI resume builder + portfolio auto-generated</span></li>
+          <li><span class="mc-check">✓</span><span>XP, streaks, badges, leaderboards — daily motivation</span></li>
+          <li><span class="mc-check">✓</span><span>Day 1 is completely free — no card required</span></li>
+        </ul>
+      </div>
+      <div class="month-card m2">
+        <div class="guarantee-ribbon">GUARANTEED FOR TOP 20%</div>
+        <div class="month-num">02</div>
+        <span class="month-badge">Month 2 · Days 31–60<span class="month-tag">This is the real internship</span></span>
+        <h3>Work like an intern.<br>Earn like one too.</h3>
+        <p class="mc-sub">Real product work, real deadlines, real feedback. You'll be assigned to a live project track and contribute code that actually ships.</p>
+        <ul class="mc-list">
+          <li><span class="mc-check">✓</span><span>Work on a structured real-world product track</span></li>
+          <li><span class="mc-check">✓</span><span>Weekly code reviews from senior mentors</span></li>
+          <li><span class="mc-check">✓</span><span>Pair programming and collaborative PR reviews</span></li>
+          <li><span class="mc-check">✓</span><span>Performance reviewed across 5 criteria</span></li>
+          <li><span class="mc-check">✓</span><span>LinkedIn endorsements from Nova Labs mentors</span></li>
+          <li><span class="mc-check">✓</span><span>Formal internship completion letter issued</span></li>
+          <li><span class="mc-check">✓</span><span>Alumni network + referral pipeline for hiring</span></li>
+          <li><span class="mc-check" style="color:var(--gold)">★</span><span style="color:rgba(255,255,255,.9);font-weight:600">Top performers earn a paid stipend</span></li>
+        </ul>
+        <div class="stipend-box">
+          <p>🏆 <strong>Stipend-based internship is not guaranteed for everyone — it is earned.</strong> Interns who score in the top 20% on Month 2 performance criteria (code quality, shipping velocity, review responsiveness, and collaboration) are eligible for a stipend and an extended engagement with the Nova Labs team.</p>
+        </div>
+        <div class="guarantee-callout">
+          <span class="gc-ic">💰</span>
+          <p><strong>The rule is published, not a black box:</strong> hit the top 20% on the public rubric and your paid stipend is guaranteed — no committee vote, no favourites.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI ADVANTAGE -->
+<section class="ai-adv" id="ai-advantage">
+  <div class="si">
+    <div class="ai-grid">
+      <div class="ai-text">
+        <p class="ey">The AI edge</p>
+        <h2 class="st">Everyone is vibe coding.<br>Only some will survive it.</h2>
+        <p class="ss">AI tools like Cursor, Copilot, and ChatGPT are incredible — but only for people who understand what they're generating. We train you to be that person.</p>
+        <div class="ai-point">
+          <div class="ai-icon t">🧠</div>
+          <div>
+            <h4>You'll understand every line AI writes</h4>
+            <p>When Copilot generates a JWT auth flow or a MongoDB aggregation pipeline, you'll know exactly what to fix, extend, and when to throw it away.</p>
+          </div>
+        </div>
+        <div class="ai-point">
+          <div class="ai-icon g">⚡</div>
+          <div>
+            <h4>Your AI-assisted output will be 10x more reliable</h4>
+            <p>Developers who understand foundations ship AI-generated code with 90% fewer bugs. Those who don't spend hours debugging hallucinations.</p>
+          </div>
+        </div>
+        <div class="ai-point">
+          <div class="ai-icon p">🎯</div>
+          <div>
+            <h4>You'll prompt like a senior engineer</h4>
+            <p>Knowing Docker, REST architecture, and database schemas lets you write prompts that produce production-grade code — not prototype spaghetti.</p>
+          </div>
+        </div>
+      </div>
+      <div class="ai-visual">
+        <div class="code-window">
+          <div class="cw-bar">
+            <div class="cw-dot" style="background:#ef4444"></div>
+            <div class="cw-dot" style="background:#f59e0b"></div>
+            <div class="cw-dot" style="background:#10b981"></div>
+          </div>
+          <span class="cl3"># After Nova Labs — you know exactly what this does</span><br>
+          <span class="cl2">@app</span><span class="cl1">.post</span><span class="cl5">("/tasks")</span><br>
+          <span class="cl2">async def</span> <span class="cl4">create_task</span><span class="cl5">(task: TaskModel, user: User = Depends(get_current_user)):</span><br>
+          &nbsp;&nbsp;<span class="cl3"># Copilot wrote this. You understand why it's correct.</span><br>
+          &nbsp;&nbsp;<span class="cl1">result</span> = <span class="cl2">await</span> db.tasks.<span class="cl4">insert_one</span><span class="cl5">({</span><span class="cl4">**task.dict()</span>, <span class="cl1">"user_id"</span>: user.id<span class="cl5">})</span><br>
+          &nbsp;&nbsp;<span class="cl2">return</span> <span class="cl5">{</span><span class="cl1">"id"</span>: str<span class="cl5">(</span>result.inserted_id<span class="cl5">)}</span>
+        </div>
+        <div class="ai-stat-row">
+          <div class="ai-stat"><span class="ai-stat-n teal-txt">10x</span><span class="ai-stat-l">Faster shipping with AI + foundations</span></div>
+          <div class="ai-stat"><span class="ai-stat-n gold-txt">90%</span><span class="ai-stat-l">Fewer AI-generated bugs you'll catch</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE EDITOR DEMO -->
+<section class="editor-sec" id="editor">
+  <div class="si">
+    <p class="ey">No setup, ever</p>
+    <h2 class="st">Code from Day 1 — right in the browser</h2>
+    <p class="ss">No installs, no environment errors, no "it works on my machine." Every lesson ships with a live editor and an instant quiz check, so you know you've actually understood it before you move on.</p>
+    <div class="editor-wrap">
+      <div class="editor-panel">
+        <div class="ed-bar">
+          <div class="ed-tabs">
+            <span class="ed-tab on">Your code</span>
+            <span class="ed-tab">Expected output</span>
+          </div>
+          <button class="ed-run">▶ Run code</button>
+        </div>
+        <div class="ed-body">
+<span class="ln">1</span><span class="tok-cm">// Day 14 — protect this route with a JWT check</span><br>
+<span class="ln">2</span><span class="tok-kw">function</span> <span class="tok-fn">requireAuth</span>(req, res, next) {<br>
+<span class="ln">3</span>&nbsp;&nbsp;<span class="tok-kw">const</span> <span class="tok-var">token</span> = req.headers[<span class="tok-str">'authorization'</span>];<br>
+<span class="ln">4</span>&nbsp;&nbsp;<span class="tok-kw">if</span> (!<span class="tok-var">token</span>) <span class="tok-kw">return</span> res.status(<span class="tok-fn">401</span>).send();<br>
+<span class="ln">5</span>&nbsp;&nbsp;<span class="tok-kw">const</span> <span class="tok-var">user</span> = <span class="tok-fn">verify</span>(<span class="tok-var">token</span>);<br>
+<span class="ln">6</span>&nbsp;&nbsp;req.user = <span class="tok-var">user</span>;<br>
+<span class="ln">7</span>&nbsp;&nbsp;<span class="tok-fn">next</span>();<br>
+<span class="ln">8</span>}
+        </div>
+        <div class="ed-output">
+          <div class="ed-output-label">Console output</div>
+          <div class="ed-output-line">✓ Route protected — unauthenticated request returned 401</div>
+          <div class="ed-output-line">✓ All 3 test cases passed</div>
+        </div>
+      </div>
+      <div class="quiz-mock">
+        <div class="quiz-mock-h"><h4>Quick check — Day 14, Q4/10</h4><span>4/10</span></div>
+        <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px">Why store the access token in memory instead of localStorage?</p>
+        <div class="qopt wrong"><span class="qdot">✕</span><span>It's faster to read on every request</span></div>
+        <div class="qopt correct"><span class="qdot">✓</span><span>It prevents theft via XSS since scripts can't read it</span></div>
+        <div class="qopt"><span class="qdot"></span><span>localStorage has a smaller size limit</span></div>
+        <div class="quiz-exp"><strong>Why:</strong> Anything in localStorage is readable by any script on the page. Keeping the access token in memory only means a successful XSS attack still can't steal it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER 1 -->
+<section class="quote-banner on-light">
+  <div class="qb-mark">"</div>
+  <p class="qb-text">A free YouTube tutorial teaches you to <em>copy</em>. Nova Labs teaches you to <span class="pink-em">ship</span>.</p>
+  <p class="qb-sub">THE DIFFERENCE BETWEEN A CERTIFICATE AND A CAREER</p>
+</section>
+
+<!-- GAMIFICATION -->
+<section class="gamif">
+  <div class="sec-blob" style="top:-10%;right:-8%;width:420px;height:420px;background:radial-gradient(circle,rgba(244,114,182,.1) 0%,transparent 70%)"></div>
+  <div class="sec-blob" style="bottom:-15%;left:-5%;width:380px;height:380px;background:radial-gradient(circle,rgba(34,211,238,.08) 0%,transparent 70%)"></div>
+  <div class="si">
+    <p class="ey dark-ey">Engagement system</p>
+    <h2 class="st dark-st">Built to keep you showing up — every single day</h2>
+    <p class="ss dark-ss">Completion is the real skill. We've engineered the platform around the psychology of habit, progress visibility, and peer competition.</p>
+    <div class="gam-grid">
+      <div class="gam-card">
+        <span class="gam-emoji">⚡</span>
+        <h3>XP & levels</h3>
+        <p>Earn experience points for every lesson, quiz, assignment, and project. Watch your level climb daily — visible to your entire cohort.</p>
+      </div>
+      <div class="gam-card">
+        <span class="gam-emoji">🔥</span>
+        <h3>Daily streaks</h3>
+        <p>Build your streak. Break it and you feel it. Completion streaks are tracked publicly and factor into your final performance score.</p>
+      </div>
+      <div class="gam-card">
+        <span class="gam-emoji">🏅</span>
+        <h3>Achievement badges</h3>
+        <p>First Deploy, 7-Day Streak, Bug Squasher, Top Reviewer, Docker Wizard — 30+ badges you actually want to show on your LinkedIn.</p>
+      </div>
+      <div class="gam-card">
+        <span class="gam-emoji">📊</span>
+        <h3>Leaderboard</h3>
+        <p>Weekly and all-time. Batch-based so you're competing with your peers, not thousands of strangers. Friendly pressure that drives real completion.</p>
+      </div>
+    </div>
+    <div class="leaderboard">
+      <div class="lb-title">🏆 This week's leaderboard — Cohort July 2024</div>
+      <div class="lb-row"><span class="lb-pos pos1">#1</span><div class="lb-av" style="background:rgba(244,114,182,.2);color:var(--teal)">AR</div><span class="lb-name">Ananya R.</span><span class="lb-xp">2,840 XP</span><span class="lb-streak">🔥 12-day streak</span></div>
+      <div class="lb-row"><span class="lb-pos pos2">#2</span><div class="lb-av" style="background:rgba(167,139,250,.2);color:#c4b5fd">RK</div><span class="lb-name">Rohit K.</span><span class="lb-xp">2,615 XP</span><span class="lb-streak">🔥 9-day streak</span></div>
+      <div class="lb-row"><span class="lb-pos pos3">#3</span><div class="lb-av" style="background:rgba(34,211,238,.2);color:var(--gold)">SP</div><span class="lb-name">Sneha P.</span><span class="lb-xp">2,490 XP</span><span class="lb-streak">🔥 14-day streak</span></div>
+      <div class="lb-row"><span class="lb-pos" style="color:rgba(255,255,255,.4)">#4</span><div class="lb-av" style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.4)">VS</div><span class="lb-name" style="color:rgba(255,255,255,.4)">Vikram S.</span><span class="lb-xp" style="color:rgba(255,255,255,.3)">2,310 XP</span><span class="lb-streak">🔥 6-day streak</span></div>
+    </div>
+    <p class="ey dark-ey" style="margin-top:56px">30+ badges to chase</p>
+    <h3 style="font-family:var(--D);font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px">Earn them. Flex them on LinkedIn.</h3>
+    <p class="ss dark-ss" style="margin-bottom:0">A background job awards these the moment you earn them — toast notification and all.</p>
+    <div class="badge-wall">
+      <div class="badge-chip"><span class="badge-ic">🎯</span><h5>Day 1 Complete</h5><span class="badge-rarity r-common">Common</span></div>
+      <div class="badge-chip bc-rare"><span class="badge-ic">💯</span><h5>Perfect Quiz</h5><span class="badge-rarity r-rare">Rare</span></div>
+      <div class="badge-chip bc-epic"><span class="badge-ic">🚀</span><h5>First Deploy</h5><span class="badge-rarity r-epic">Epic</span></div>
+      <div class="badge-chip"><span class="badge-ic">🐛</span><h5>Bug Squasher</h5><span class="badge-rarity r-common">Common</span></div>
+      <div class="badge-chip bc-rare"><span class="badge-ic">🔥</span><h5>Week Warrior</h5><span class="badge-rarity r-rare">Rare</span></div>
+      <div class="badge-chip bc-legendary"><span class="badge-ic">👑</span><h5>30-Day Legend</h5><span class="badge-rarity r-legendary">Legendary</span></div>
+      <div class="badge-chip bc-rare"><span class="badge-ic">🙋</span><h5>Helpful Human</h5><span class="badge-rarity r-rare">Rare</span></div>
+      <div class="badge-chip bc-epic"><span class="badge-ic">⭐</span><h5>Excellence Project</h5><span class="badge-rarity r-epic">Epic</span></div>
+      <div class="badge-chip"><span class="badge-ic">🌅</span><h5>Early Bird</h5><span class="badge-rarity r-common">Common</span></div>
+      <div class="badge-chip"><span class="badge-ic">🦉</span><h5>Night Owl</h5><span class="badge-rarity r-common">Common</span></div>
+      <div class="badge-chip bc-rare"><span class="badge-ic">⚡</span><h5>Speed Runner</h5><span class="badge-rarity r-rare">Rare</span></div>
+      <div class="badge-chip bc-epic"><span class="badge-ic">🏁</span><h5>All 30 Days</h5><span class="badge-rarity r-epic">Epic</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section class="cert-sec" id="certificates">
+  <div class="sec-blob" style="top:-20%;left:30%;width:500px;height:500px;background:radial-gradient(circle,rgba(167,139,250,.08) 0%,transparent 70%)"></div>
+  <div class="si">
+    <p class="ey dark-ey">Proof that holds up</p>
+    <h2 class="st dark-st">Five certificate tiers. Each one harder to fake than the last.</h2>
+    <p class="ss dark-ss">No participation trophies. Every certificate is tied to work you actually shipped, and every one is publicly verifiable by anyone you send it to.</p>
+    <div class="cert-row">
+      <div class="cert-card cc1">
+        <span class="cert-tier" style="color:rgba(255,255,255,.6)">Tier 1</span>
+        <h4>Participation</h4>
+        <p>Awarded the moment you finish Day 1 — completely free, no payment needed.</p>
+        <span class="ck">Auto-issued · Day 1</span>
+      </div>
+      <div class="cert-card cc2">
+        <span class="cert-tier" style="color:var(--gold)">Tier 2</span>
+        <h4>Completion</h4>
+        <p>All 30 days submitted. You showed up and finished what you started.</p>
+        <span class="ck">Auto-issued · Day 30</span>
+      </div>
+      <div class="cert-card cc3">
+        <span class="cert-tier" style="color:#67e8f9">Tier 3</span>
+        <h4>Merit</h4>
+        <p>All 30 days, ≥70% average quiz score, and all 4 projects submitted.</p>
+        <span class="ck">Auto-issued · 24hrs after Day 30</span>
+      </div>
+      <div class="cert-card cc4">
+        <span class="cert-tier" style="color:var(--purple)">Tier 4</span>
+        <h4>Excellence</h4>
+        <p>≥90% average quiz score and all 4 projects deployed live, scoring 80+.</p>
+        <span class="ck">Auto-issued · After mentor review</span>
+      </div>
+      <div class="cert-card cc5">
+        <span class="cert-tier" style="color:var(--pink)">Tier 5</span>
+        <h4>Internship Candidate</h4>
+        <p>Top 5% of your cohort by XP, a 95+ project, and a manual portfolio review.</p>
+        <span class="ck">Hand-reviewed · Admin approval</span>
+      </div>
+    </div>
+    <div class="verify-box">
+      <span class="verify-label">Anyone — a recruiter, a hiring manager — can verify a certificate is real:</span>
+      <input type="text" placeholder="Paste certificate ID, e.g. 9f2a-7c41-…" disabled>
+      <button class="verify-btn">Verify →</button>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME AI TOOL -->
+<section class="resume-sec">
+  <div class="si">
+    <div class="resume-wrap">
+      <div>
+        <p class="ey">AI Resume builder</p>
+        <h2 class="st">Your resume writes itself — from your actual code</h2>
+        <p class="ss">Every project, every commit, every achievement on the platform auto-populates your resume. Then our AI scores it and tells you exactly what to fix before you send it to a recruiter.</p>
+        <div class="value-row">
+          <div class="vr-icon">📋</div>
+          <div><h4>Auto-filled from your real work</h4><p>The platform tracks every project you deploy, every PR you submit, every skill you unlock — and populates your resume with specific, recruiter-ready bullet points.</p></div>
+        </div>
+        <div class="value-row">
+          <div class="vr-icon">🤖</div>
+          <div><h4>ATS score + rewrite suggestions</h4><p>Our AI scans your resume against common ATS systems and gives you a score out of 100. It highlights weak phrasing, missing keywords, and formatting issues — and tells you exactly how to fix them.</p></div>
+        </div>
+        <div class="value-row">
+          <div class="vr-icon" style="background:rgba(34,211,238,.1)">🌐</div>
+          <div><h4>Auto-generated public portfolio site</h4><p>A live portfolio page at novalabs.com/u/yourname — with all 4 projects, GitHub links, and your certificate tier. Ready to share with one link.</p></div>
+        </div>
+      </div>
+      <div class="resume-mock">
+        <div class="rm-header">
+          <div class="rm-dots">
+            <div class="rm-dot" style="background:#ef4444"></div>
+            <div class="rm-dot" style="background:#f59e0b"></div>
+            <div class="rm-dot" style="background:#10b981"></div>
+          </div>
+          <span class="rm-title">Nova Labs — AI Resume Analyser</span>
+        </div>
+        <div class="rm-body">
+          <div class="rm-score-ring">
+            <div class="score-circle"><div class="score-inner">82</div></div>
+            <div class="score-info"><h4>ATS Score: Good</h4><p>3 quick fixes will push this to 94+</p></div>
+          </div>
+          <div class="rm-tags">
+            <span class="rm-tag rt-green">✓ Strong action verbs</span>
+            <span class="rm-tag rt-green">✓ Quantified impact</span>
+            <span class="rm-tag rt-amber">⚠ Missing: Docker keyword</span>
+            <span class="rm-tag rt-red">✗ LinkedIn URL missing</span>
+          </div>
+          <ul class="rm-list">
+            <li><span class="ok">✓</span> "Built and deployed a full-stack task manager with JWT auth" — strong</li>
+            <li><span class="ok">✓</span> MongoDB, FastAPI, React — keywords detected</li>
+            <li><span class="warn">⚠</span> Add "containerised with Docker" to project 1</li>
+            <li><span class="warn">⚠</span> Spell out "4 endpoints" → "12 REST API endpoints"</li>
+            <li><span class="bad">✗</span> No GitHub profile link found — add it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="ey" style="margin-top:56px">From code to career, automatically</p>
+    <h3 style="font-family:var(--D);font-size:20px;font-weight:700;color:var(--text);margin-bottom:6px">No manual resume writing. Ever.</h3>
+    <div class="resume-flow">
+      <div class="rf-step">
+        <h6>01 · You ship</h6>
+        <p>You submit Project 1 — a Task Manager with JWT auth and a MongoDB aggregation pipeline.</p>
+        <code>git push origin main</code>
+      </div>
+      <div class="rf-arrow">→</div>
+      <div class="rf-step">
+        <h6>02 · AI extracts</h6>
+        <p>The platform reads your rubric score, stack tags, and commit history — no manual entry.</p>
+        <code>auth: ✓ · mongo: ✓ · score: 91</code>
+      </div>
+      <div class="rf-arrow">→</div>
+      <div class="rf-step">
+        <h6>03 · Resume writes itself</h6>
+        <p>A recruiter-ready bullet point appears on your resume, instantly.</p>
+        <code>"Built full-stack app with JWT auth, 12 REST endpoints"</code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BANNER 2 -->
+<section class="quote-banner on-dark">
+  <div class="qb-mark">"</div>
+  <p class="qb-text">Recruiters don't read certificates. <em>They read GitHub commits and live URLs.</em></p>
+  <p class="qb-sub">WHY EVERY PROJECT HERE IS DEPLOYED, NOT JUST SUBMITTED</p>
+</section>
+
+<!-- DASHBOARD -->
+<section class="dash-sec" id="dashboard">
+  <div class="si">
+    <p class="ey dark-ey">Intern dashboard</p>
+    <h2 class="st dark-st">You'll always know exactly where you stand</h2>
+    <p class="ss dark-ss">A detailed analytics dashboard shows your progress, skill coverage, XP trajectory, and how you compare to your cohort — updated in real time.</p>
+    <div class="dash-mock">
+      <div class="dash-header">
+        <span>Nova Labs — Intern Dashboard</span>
+        <span style="font-size:12px;color:rgba(255,255,255,.4)">Day 18 / 60 · Cohort July 2024</span>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-metric"><span class="dm-n" style="color:var(--teal)">1,840</span><span class="dm-l">XP earned</span></div>
+        <div class="dash-metric"><span class="dm-n" style="color:var(--gold)">🔥 11</span><span class="dm-l">Day streak</span></div>
+        <div class="dash-metric"><span class="dm-n" style="color:var(--purple)">#3</span><span class="dm-l">Cohort rank</span></div>
+        <div class="dash-metric"><span class="dm-n" style="color:#34d399">2</span><span class="dm-l">Projects shipped</span></div>
+      </div>
+      <div class="dash-progress">
+        <div class="day-track">
+          <h4>30-day progress</h4>
+          <div class="days-grid">
+            <div class="dg-day dg-done">1</div><div class="dg-day dg-done">2</div><div class="dg-day dg-done">3</div><div class="dg-day dg-done">4</div><div class="dg-day dg-done">5</div>
+            <div class="dg-day dg-done">6</div><div class="dg-day dg-done">7</div><div class="dg-day dg-done">8</div><div class="dg-day dg-done">9</div><div class="dg-day dg-done">10</div>
+            <div class="dg-day dg-done">11</div><div class="dg-day dg-done">12</div><div class="dg-day dg-done">13</div><div class="dg-day dg-done">14</div><div class="dg-day dg-done">15</div>
+            <div class="dg-day dg-done">16</div><div class="dg-day dg-done">17</div><div class="dg-day dg-today">18</div><div class="dg-day dg-lock">19</div><div class="dg-day dg-lock">20</div>
+            <div class="dg-day dg-lock">21</div><div class="dg-day dg-lock">22</div><div class="dg-day dg-lock">23</div><div class="dg-day dg-lock">24</div><div class="dg-day dg-lock">25</div>
+            <div class="dg-day dg-lock">26</div><div class="dg-day dg-lock">27</div><div class="dg-day dg-lock">28</div><div class="dg-day dg-lock">29</div><div class="dg-day dg-lock">30</div>
+          </div>
+        </div>
+        <div class="skill-bars">
+          <h4>Skill coverage</h4>
+          <div class="sb-item"><div class="sb-label"><span>HTML/CSS/JS</span><span style="color:var(--teal)">100%</span></div><div class="sb-track"><div class="sb-fill" style="width:100%;background:var(--teal)"></div></div></div>
+          <div class="sb-item"><div class="sb-label"><span>React</span><span style="color:var(--teal)">80%</span></div><div class="sb-track"><div class="sb-fill" style="width:80%;background:var(--teal)"></div></div></div>
+          <div class="sb-item"><div class="sb-label"><span>FastAPI</span><span style="color:var(--gold)">60%</span></div><div class="sb-track"><div class="sb-fill" style="width:60%;background:var(--gold)"></div></div></div>
+          <div class="sb-item"><div class="sb-label"><span>MongoDB</span><span style="color:rgba(255,255,255,.3)">0%</span></div><div class="sb-track"><div class="sb-fill" style="width:0%;background:var(--teal)"></div></div></div>
+          <div class="sb-item"><div class="sb-label"><span>Docker</span><span style="color:rgba(255,255,255,.3)">0%</span></div><div class="sb-track"><div class="sb-fill" style="width:0%;background:var(--teal)"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PAY -->
+<section class="why-pay">
+  <div class="si">
+    <div class="pay-grid">
+      <div class="pay-card">
+        <h3>Why does this cost ₹1,299 if you believe in accessible education?</h3>
+        <div class="pay-line"><span class="pay-icon">📚</span><p><strong>6 months of curriculum research</strong> went into sequencing 30 days so nothing is wasted. Every day unlocks at the right moment. That architecture has real value.</p></div>
+        <div class="pay-line"><span class="pay-icon">🛠️</span><p><strong>A full platform had to be built</strong> — live editor, auto-evaluation engine, dashboard, AI resume tool, certificate system. This isn't a Notion doc and a Zoom link.</p></div>
+        <div class="pay-line"><span class="pay-icon">👨‍🏫</span><p><strong>Mentors are real engineers</strong> with real opportunity cost. Code reviews, mock interviews, and doubt resolution are not free.</p></div>
+        <div class="pay-line"><span class="pay-icon">💡</span><p><strong>₹1,299 is not the cost of the programme</strong> — it's a commitment signal. Free programmes have 3% completion. A small financial stake creates accountability.</p></div>
+        <div class="research-stats">
+          <div class="rs"><span class="rs-n">6+</span><span class="rs-l">Months of research</span></div>
+          <div class="rs"><span class="rs-n">1,200+</span><span class="rs-l">Lines of curriculum</span></div>
+          <div class="rs"><span class="rs-n">10–20x</span><span class="rs-l">Cheaper than alternatives</span></div>
+          <div class="rs"><span class="rs-n">86%</span><span class="rs-l">Contribution margin</span></div>
+        </div>
+      </div>
+      <div class="research-right">
+        <p class="ey">The honest case</p>
+        <h2 class="st">What you're actually getting for ₹1,299</h2>
+        <p class="ss">Compare this to anything else on the market and the question stops being "why does this cost money" and starts being "why does this cost so little".</p>
+        <div class="value-row">
+          <div class="vr-icon">🎓</div>
+          <div><h4>A structured 60-day internship programme</h4><p>Not a course. An internship — with phases, milestones, mentors, reviews, and a completion letter from a registered company.</p></div>
+        </div>
+        <div class="value-row">
+          <div class="vr-icon" style="background:rgba(34,211,238,.1)">🚀</div>
+          <div><h4>4 live, deployed applications</h4><p>Not mockups. Not screenshots. Real URLs, real GitHub repos, real commit history. Each one goes on your resume immediately.</p></div>
+        </div>
+        <div class="value-row">
+          <div class="vr-icon" style="background:rgba(167,139,250,.1)">🤖</div>
+          <div><h4>AI resume builder + portfolio site</h4><p>Tools that standalone would cost ₹500–2,000/month. Included in your ₹1,299 for life.</p></div>
+        </div>
+        <div class="value-row" style="border-bottom:none">
+          <div class="vr-icon" style="background:rgba(34,211,238,.1)">💰</div>
+          <div><h4>A real shot at a stipend</h4><p>No other programme at this price level offers performance-based compensation. Show up, perform, and get paid.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="curr" id="curriculum">
+  <div class="si">
+    <p class="ey">Month 1 curriculum</p>
+    <h2 class="st">30 days. No filler. All build.</h2>
+    <p class="ss">Every single day produces something real. If a day doesn't ship something, it doesn't make the cut. Click a phase to see exactly what you'll build — we've opened on Phase 6, because that's the phase that actually gets you hired.</p>
+    <div class="curr-explorer">
+      <div class="curr-sidebar" id="currSidebar">
+        <div class="cs-item" data-p="1"><span class="cs-num">1</span><div class="cs-meta"><h5>Web Foundations</h5><span>Days 1–5</span></div></div>
+        <div class="cs-item" data-p="2"><span class="cs-num">2</span><div class="cs-meta"><h5>React Frontend</h5><span>Days 6–10</span></div></div>
+        <div class="cs-item" data-p="3"><span class="cs-num">3</span><div class="cs-meta"><h5>Full-Stack</h5><span>Days 11–15</span></div></div>
+        <div class="cs-item" data-p="4"><span class="cs-num">4</span><div class="cs-meta"><h5>DevOps & Deploy</h5><span>Days 16–20</span></div></div>
+        <div class="cs-item" data-p="5"><span class="cs-num">5</span><div class="cs-meta"><h5>Advanced + DSA</h5><span>Days 21–25</span></div></div>
+        <div class="cs-item final" data-p="6"><span class="cs-num">★</span><div class="cs-meta"><h5>Career Launch<span class="cs-final-tag">Final</span></h5><span>Days 26–30</span></div></div>
+      </div>
+      <div class="curr-content">
+        <div class="cs-panel" data-p="1">
+          <div class="cs-panel-head"><h3>Web Foundations</h3><span class="cs-panel-badge">Phase 1 / 6</span></div>
+          <p class="cs-panel-sub">Where it all starts — and Day 1 is free, so you can try before you commit to anything.</p>
+          <div class="cs-day-list">
+            <div class="cs-day"><span class="cs-day-n fr">D1 ★</span><div class="cs-day-body"><h6>HTML Foundations — Free</h6><p>Semantic structure, forms, first published page</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D2</span><div class="cs-day-body"><h6>CSS, Flexbox & Responsive</h6><p>Layouts, breakpoints, styled personal page</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D3</span><div class="cs-day-body"><h6>JavaScript Fundamentals</h6><p>Variables, functions, DOM, event handling</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D4</span><div class="cs-day-body"><h6>Advanced JS — Async/Await</h6><p>Promises, first live API interactions</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D5</span><div class="cs-day-body"><h6>Git & GitHub</h6><p>Version control, branching, first public repo</p></div></div>
+          </div>
+        </div>
+        <div class="cs-panel" data-p="2">
+          <div class="cs-panel-head"><h3>React Frontend</h3><span class="cs-panel-badge">Phase 2 / 6</span></div>
+          <p class="cs-panel-sub">From static pages to interactive UIs — and your first backend endpoint.</p>
+          <div class="cs-day-list">
+            <div class="cs-day"><span class="cs-day-n">D6</span><div class="cs-day-body"><h6>React Basics</h6><p>Components, props, JSX</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D7</span><div class="cs-day-body"><h6>React Hooks</h6><p>useState, useEffect, custom hooks</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D8</span><div class="cs-day-body"><h6>API Integration</h6><p>Live weather app, loading & error states</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D9</span><div class="cs-day-body"><h6>UI Polishing & Design</h6><p>Design tokens, glassmorphism UI</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D10</span><div class="cs-day-body"><h6>FastAPI Basics</h6><p>First Python backend endpoints</p></div></div>
+          </div>
+        </div>
+        <div class="cs-panel" data-p="3">
+          <div class="cs-panel-head"><h3>Full-Stack</h3><span class="cs-panel-badge">Phase 3 / 6</span></div>
+          <p class="cs-panel-sub">Frontend meets backend meets database — and your first deployed app.</p>
+          <div class="cs-day-list">
+            <div class="cs-day"><span class="cs-day-n">D11</span><div class="cs-day-body"><h6>MongoDB Basics</h6><p>Cloud DB, CRUD, async queries</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D12</span><div class="cs-day-body"><h6>Backend CRUD at Scale</h6><p>Pagination, search, aggregation</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D13</span><div class="cs-day-body"><h6>Full-Stack Integration</h6><p>React → FastAPI → MongoDB</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D14</span><div class="cs-day-body"><h6>Authentication (JWT)</h6><p>Signup, login, protected routes</p></div></div>
+            <div class="cs-day"><span class="cs-day-n fr">D15 ●</span><div class="cs-day-body"><h6>Project 1 — Task Manager</h6><p>First deployed full-stack app</p></div></div>
+          </div>
+        </div>
+        <div class="cs-panel" data-p="4">
+          <div class="cs-panel-head"><h3>DevOps & Deploy</h3><span class="cs-panel-badge">Phase 4 / 6</span></div>
+          <p class="cs-panel-sub">Containerise it, ship it live, and make your GitHub recruiter-ready.</p>
+          <div class="cs-day-list">
+            <div class="cs-day"><span class="cs-day-n fr">D16 ●</span><div class="cs-day-body"><h6>Project 2 — Notes App</h6><p>Markdown editor, public sharing</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D17</span><div class="cs-day-body"><h6>Docker</h6><p>Containerise frontend & backend</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D18</span><div class="cs-day-body"><h6>Deployment</h6><p>Live on Vercel + Railway</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D19</span><div class="cs-day-body"><h6>Resume & GitHub</h6><p>ATS resume, polished GitHub</p></div></div>
+            <div class="cs-day"><span class="cs-day-n fr">D20 ●</span><div class="cs-day-body"><h6>Project 3 — SaaS Dashboard</h6><p>Charts, KPIs, analytics</p></div></div>
+          </div>
+        </div>
+        <div class="cs-panel" data-p="5">
+          <div class="cs-panel-head"><h3>Advanced + DSA</h3><span class="cs-panel-badge">Phase 5 / 6</span></div>
+          <p class="cs-panel-sub">The interview-prep layer most bootcamps skip entirely.</p>
+          <div class="cs-day-list">
+            <div class="cs-day"><span class="cs-day-n">D21</span><div class="cs-day-body"><h6>Advanced React</h6><p>Context, memoisation, lazy loading</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D22</span><div class="cs-day-body"><h6>Testing</h6><p>Unit, component, API tests</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D23</span><div class="cs-day-body"><h6>CI/CD Pipeline</h6><p>GitHub Actions, auto-deploy</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D24</span><div class="cs-day-body"><h6>System Design</h6><p>Scalability, caching, SQL vs NoSQL</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D25</span><div class="cs-day-body"><h6>DSA for Interviews</h6><p>10 solved problems, complexity analysis</p></div></div>
+          </div>
+        </div>
+        <div class="cs-panel" data-p="6">
+          <div class="cs-panel-head"><h3>Career Launch</h3><span class="cs-panel-badge">Phase 6 / 6 — Final phase</span></div>
+          <p class="cs-panel-sub">This is the phase that actually gets you hired — interview reps, your personal brand, and the project that proves initiative, not just instruction-following.</p>
+          <div class="cs-day-list">
+            <div class="cs-day"><span class="cs-day-n">D26</span><div class="cs-day-body"><h6>Mock Interview Prep</h6><p>Technical & HR rounds, STAR method</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D27</span><div class="cs-day-body"><h6>LinkedIn & Branding</h6><p>Profile, content strategy, networking</p></div></div>
+            <div class="cs-day"><span class="cs-day-n fr">D28 ●</span><div class="cs-day-body"><h6>Project 4 — Open Build</h6><p>Your idea, your stack, your initiative</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D29</span><div class="cs-day-body"><h6>Peer Code Review</h6><p>Give & receive feedback, engineering-style</p></div></div>
+            <div class="cs-day"><span class="cs-day-n">D30</span><div class="cs-day-body"><h6>Final Polish & Graduation</h6><p>Every project and profile audited</p></div></div>
+          </div>
+          <div class="cs-final-banner"><strong>Graduate Day 30 and you don't stop here</strong> — Month 2 starts immediately. This phase is the bridge from "I finished a course" to "I'm ready for the internship."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="proj">
+  <div class="si">
+    <p class="ey dark-ey">What you'll build</p>
+    <h2 class="st dark-st">4 live apps. Not mockups. Not exercises.<br>Real URLs the world can access.</h2>
+    <p class="ss dark-ss">Every project is graded on a 100-point rubric. Every project goes live on the internet. Every project goes on your resume.</p>
+    <div class="proj-grid proj-scroll">
+      <div class="pj"><div class="pj-n">01</div><h3>Task Manager App</h3><p>Full JWT auth, MongoDB aggregation, paginated REST API, live filters. Resume line: "Built full-stack app with 12 endpoints, auth, and real-time stats."</p><div class="pj-tags"><span class="pj-tag">React</span><span class="pj-tag">FastAPI</span><span class="pj-tag">MongoDB</span><span class="pj-tag">JWT</span></div></div>
+      <div class="pj"><div class="pj-n">02</div><h3>Notes / Blog App</h3><p>Markdown editor with live preview, auto-save debounce, public share links, full-text search across notes and tags.</p><div class="pj-tags"><span class="pj-tag">Markdown</span><span class="pj-tag">Debounce</span><span class="pj-tag">Full-text search</span></div></div>
+      <div class="pj"><div class="pj-n">03</div><h3>SaaS Analytics Dashboard</h3><p>KPI cards, live charts from real backend data, sortable paginated tables, fully responsive analytics layout.</p><div class="pj-tags"><span class="pj-tag">Recharts</span><span class="pj-tag">CSS Grid</span><span class="pj-tag">Aggregation</span></div></div>
+      <div class="pj"><div class="pj-n">04</div><h3>Open Build — Your Idea</h3><p>Month 2's foundation. Scoped by you, built by you, shipped by you. Habit tracker, expense tracker, job board — proof of real initiative.</p><div class="pj-tags"><span class="pj-tag">Your stack</span><span class="pj-tag">Your idea</span><span class="pj-tag">Your proof</span></div></div>
+    </div>
+    <div class="proj-hint">↔ Scroll to see all 4 projects</div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits">
+  <div class="si">
+    <p class="ey">Everything included</p>
+    <h2 class="st">What ₹1,299 gets you — all of it, no add-ons</h2>
+    <p class="ss">Every feature below is included for every intern from Day 1. Nothing is gated behind a "premium" tier.</p>
+    <div class="ben-grid">
+      <div class="bn"><span class="bn-icon">🤖</span><h3>AI resume builder</h3><p>Auto-fills from your platform activity, scores your ATS compatibility, and gives line-by-line rewrite suggestions.</p></div>
+      <div class="bn"><span class="bn-icon">📊</span><h3>Detailed analytics dashboard</h3><p>Track XP, streak, cohort rank, skill coverage, project scores, and performance trajectory in real time.</p></div>
+      <div class="bn"><span class="bn-icon">🏅</span><h3>Badges & gamification</h3><p>30+ achievement badges you actually want to show off. First Deploy, Bug Squasher, Docker Wizard, and more.</p></div>
+      <div class="bn"><span class="bn-icon">🌐</span><h3>Public portfolio site</h3><p>Auto-generated at novalabs.com/u/yourname — all 4 projects, live links, GitHub, and your certificate tier.</p></div>
+      <div class="bn"><span class="bn-icon">🎤</span><h3>AI mock interviews</h3><p>Topic-wise question sets with AI-scored readiness. Technical and HR rounds — both simulated before the real thing.</p></div>
+      <div class="bn"><span class="bn-icon">👥</span><h3>Cohort community</h3><p>Peer code reviews, doubt resolution threads, project showcases, and a leaderboard that creates real accountability.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section class="comm-sec" id="community">
+  <div class="si">
+    <p class="ey">Never stuck for long</p>
+    <h2 class="st">Stuck on Day 14? Your whole cohort — and a mentor — has your back</h2>
+    <p class="ss">Every day has its own doubt thread. Ask, get an answer, move on. Mentors mark the best answer "Official" so it's the first thing the next confused learner sees.</p>
+    <div class="comm-wrap">
+      <div class="comm-post">
+        <div class="comm-top">
+          <div class="comm-av" style="background:#22d3ee">VS</div>
+          <span class="comm-name">Vikram S.</span>
+          <span class="comm-tag">· Day 14 · 2 hours ago</span>
+        </div>
+        <p class="comm-q">My refresh token endpoint keeps returning 401 even right after login. Is the cookie not being set?</p>
+        <div class="comm-reply"><strong>Mentor — Aditi N.</strong> <span class="official-pill">OFFICIAL ANSWER</span><br>Check that your cookie has <code>httpOnly</code> and <code>sameSite</code> set, and that your frontend fetch call includes <code>credentials: 'include'</code> — that's the usual culprit.</div>
+      </div>
+      <div class="comm-post">
+        <div class="comm-top">
+          <div class="comm-av" style="background:#a78bfa">PR</div>
+          <span class="comm-name">Priya R.</span>
+          <span class="comm-tag">· Day 20 · Yesterday</span>
+        </div>
+        <p class="comm-q">Just deployed my SaaS dashboard project — Recharts + FastAPI aggregation pipeline live for the first time 🎉</p>
+        <div class="comm-reply"><strong>14 upvotes</strong> · 6 replies — "the chart loading state is so smooth, what did you use?"</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="si">
+    <p class="ey">Apply now</p>
+    <h2 class="st">Priced so price is never the reason you don't start</h2>
+    <p class="ss">Day 1 is free. The full 60-day internship — training + real project work + stipend eligibility — is ₹1,299.</p>
+    <div class="price-wrap">
+      <div class="price-card">
+        <div class="price-big">₹1,299</div>
+        <div class="price-gst">+ 18% GST = ₹1,532.82 total</div>
+        <ul class="price-fl">
+          <li><span class="pf-ck">✓</span><span>Day 1 completely free — no card required</span></li>
+          <li><span class="pf-ck">✓</span><span>60-day virtual internship programme</span></li>
+          <li><span class="pf-ck">✓</span><span>Month 1: 30 days structured training</span></li>
+          <li><span class="pf-ck">✓</span><span>Month 2: 30 days real project work</span></li>
+          <li><span class="pf-ck">✓</span><span>Formal internship completion letter</span></li>
+          <li><span class="pf-ck" style="color:var(--gold)">★</span><span>Stipend eligibility for top 20% performers</span></li>
+          <li><span class="pf-ck">✓</span><span>AI resume builder + public portfolio site</span></li>
+          <li><span class="pf-ck">✓</span><span>Detailed analytics dashboard</span></li>
+          <li><span class="pf-ck">✓</span><span>Badges, gamification, leaderboards</span></li>
+          <li><span class="pf-ck">✓</span><span>Referral: ₹100 off for a friend, ₹100 back</span></li>
+        </ul>
+        <button class="price-btn">Apply — Start Day 1 Free →</button>
+      </div>
+      <div>
+        <table class="cmp-table">
+          <thead><tr><th></th><th>Traditional bootcamp</th><th class="hl">Nova Labs</th></tr></thead>
+          <tbody>
+            <tr><td class="rl">Price</td><td>₹25K – ₹1L+</td><td class="hl">₹1,299</td></tr>
+            <tr><td class="rl">Day 1 trial</td><td>Rarely offered</td><td class="hl">Completely free</td></tr>
+            <tr><td class="rl">Format</td><td>Course only</td><td class="hl">Internship (2 months)</td></tr>
+            <tr><td class="rl">Projects shipped</td><td>1, sometimes 0</td><td class="hl">4, all deployed live</td></tr>
+            <tr><td class="rl">Stipend possibility</td><td>Never</td><td class="hl">Yes — for top 20%</td></tr>
+            <tr><td class="rl">Internship letter</td><td>No</td><td class="hl">Yes, from Nova Labs Pvt Ltd</td></tr>
+            <tr><td class="rl">AI resume tool</td><td>Paid add-on</td><td class="hl">Included free</td></tr>
+            <tr><td class="rl">Dashboard analytics</td><td>No</td><td class="hl">Real-time, detailed</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET -->
+<section class="market">
+  <div class="si">
+    <p class="ey">Market opportunity</p>
+    <h2 class="st">A massive, underserved market — and we're priced for it</h2>
+    <p class="ss">India's demand for practical tech skills vastly exceeds the supply of affordable, outcome-driven programmes targeting Tier 2/3 cities and self-learners.</p>
+    <div class="tam-g">
+      <div class="tam t1"><span class="tam-l">TAM</span><span class="tam-n">₹25,000+ Cr</span><p class="tam-d">India's online tech-skilling & coding education market — students and early professionals seeking job-ready skills.</p></div>
+      <div class="tam t2"><span class="tam-l">SAM</span><span class="tam-n">₹4,200+ Cr</span><p class="tam-d">Price-sensitive majority seeking affordable, project-based, outcome-driven programmes in Tier 2/3 cities.</p></div>
+      <div class="tam t3"><span class="tam-l">SOM</span><span class="tam-n">₹18 Cr</span><p class="tam-d">12–18 month target: ~1.2 lakh paying interns via referral-led, low-CAC growth.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof">
+  <div class="si">
+    <p class="ey dark-ey">What interns say</p>
+    <h2 class="st dark-st">From "I know a bit of Python" to "I deployed four live apps"</h2>
+    <p class="ss dark-ss">Early cohort voices — real people who showed up for 30 days and walked out with a portfolio recruiters actually notice.</p>
+    <div class="proof-grid">
+      <div class="proof-card"><div class="proof-stars">★★★★★</div><p>"The dashboard showing my streak and cohort rank genuinely made me log in every single day. I've never finished an online course before. I finished this."</p><div class="proof-author"><div class="pa-av" style="background:rgba(244,114,182,.2);color:var(--teal)">AR</div><div><div class="pa-name">Ananya R.</div><div class="pa-role">B.Tech, Tier 2 city → Frontend Role</div></div></div></div>
+      <div class="proof-card"><div class="proof-stars">★★★★★</div><p>"I tried Cursor and GitHub Copilot after finishing Month 1 and it was a completely different experience. I actually understood what it was generating. That's the real value."</p><div class="proof-author"><div class="pa-av" style="background:rgba(167,139,250,.2);color:#c4b5fd">RK</div><div><div class="pa-name">Rohit K.</div><div class="pa-role">Self-taught → Full-stack Intern at SaaS startup</div></div></div></div>
+      <div class="proof-card"><div class="proof-stars">★★★★★</div><p>"The resume AI tool flagged things I would have sent to 50 recruiters without fixing. By the time I applied, my ATS score was 91. I got callbacks within a week."</p><div class="proof-author"><div class="pa-av" style="background:rgba(34,211,238,.2);color:var(--gold)">SP</div><div><div class="pa-name">Sneha P.</div><div class="pa-role">CSE graduate → Internship at Bengaluru startup</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="fcta">
+  <div class="fcta-inner">
+    <div class="fcta-tag">Day 1 is free — no card required</div>
+    <h2>60 days from now, you'll either have<br><em>4 live apps and an internship letter</em> —<br>or you'll be exactly where you are today.</h2>
+    <p>The AI tools are already here. The market is already moving. The only question is whether you'll understand enough to direct them — or spend your career debugging their mistakes.</p>
+    <div class="fcta-btns">
+      <a href="#" class="btn-p" style="font-size:17px;padding:17px 38px">Apply for the Internship →</a>
+      <a href="mailto:internship@novalabs.com" class="btn-s" style="font-size:15px;padding:17px 26px">Talk to the team</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fi">
+    <div>
+      <div class="fl">NOVA <span>LABS</span></div>
+      <div style="margin-top:6px;font-size:13px">Powered by Nova Labs Private Limited</div>
+    </div>
+    <div class="flinks">
+      <a href="https://www.novalabs.com">www.novalabs.com</a>
+      <a href="mailto:internship@novalabs.com">internship@novalabs.com</a>
+      <a href="https://linkedin.com/company/novalabs">LinkedIn</a>
+    </div>
+    <div style="font-size:13px">© 2024 Nova Labs Private Limited</div>
+  </div>
+</footer>
+
+<script>
+// Hero rotating hook lines
+(function(){
+  var lines = [
+    "Ship 4 live apps. Not 4 PDFs.",
+    "Code from Day 1 — no setup, ever.",
+    "Top 20% get a guaranteed paid stipend.",
+    "AI writes your resume. You write the code.",
+    "60 days. 4 apps. 1 internship letter.",
+    "Most bootcamps teach. We make you ship.",
+    "Day 1 is free. The rest, you have to earn."
+  ];
+  var el = document.getElementById('heroTick');
+  if(!el) return;
+  var i = 0;
+  setInterval(function(){
+    i = (i + 1) % lines.length;
+    el.style.opacity = 0;
+    setTimeout(function(){ el.textContent = lines[i]; el.style.opacity = 1; }, 280);
+  }, 2800);
+})();
+
+// Curriculum sidebar phase explorer — defaults to Phase 6
+(function(){
+  var items = document.querySelectorAll('.cs-item');
+  var panels = document.querySelectorAll('.cs-panel');
+  function activate(p){
+    items.forEach(function(it){ it.classList.toggle('active', it.dataset.p === p); });
+    panels.forEach(function(pn){ pn.classList.toggle('active', pn.dataset.p === p); });
+  }
+  items.forEach(function(it){
+    it.addEventListener('click', function(){ activate(it.dataset.p); });
+  });
+  activate('6');
+})();
+
+// Scroll-reveal for sections
+(function(){
+  var targets = document.querySelectorAll('.gam-card, .badge-chip, .cert-card, .pj, .bn, .proof-card');
+  if(!('IntersectionObserver' in window) || targets.length === 0) return;
+  function reveal(el){ el.style.opacity = 1; el.style.transform = 'translateY(0)'; }
+  targets.forEach(function(t){ t.style.opacity = 0; t.style.transform = 'translateY(14px)'; t.style.transition = 'opacity .5s ease, transform .5s ease'; });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ reveal(e.target); io.unobserve(e.target); }
+    });
+  }, {threshold:.05});
+  targets.forEach(function(t){ io.observe(t); });
+  // Fail-safe: guarantee everything is visible even if IO never fires for some reason
+  setTimeout(function(){ targets.forEach(reveal); }, 2500);
+})();
+</script>
+</body>
+</html>

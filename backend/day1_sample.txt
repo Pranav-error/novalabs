@@ -1,0 +1,69 @@
+=== day_number ===
+1
+
+=== title ===
+Setup & HTML Foundations
+
+=== lesson_content ===
+# HTML Fundamentals
+
+HTML (HyperText Markup Language) is the backbone of every web page. It defines the **structure** and **content** of your website.
+
+## Document Structure
+
+Every HTML page follows this basic structure:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Page</title>
+</head>
+<body>
+  <h1>Hello, World!</h1>
+</body>
+</html>
+```
+
+## Essential Tags
+
+- **Headings**: `<h1>` through `<h6>` — define content hierarchy
+- **Paragraphs**: `<p>` — for text blocks
+- **Links**: `<a href="url">` — navigation between pages
+- **Images**: `<img src="path" alt="description">` — visual content
+- **Lists**: `<ul>`, `<ol>`, `<li>` — organized information
+- **Divs & Spans**: `<div>` (block) and `<span>` (inline) — for grouping
+
+## Semantic HTML
+
+Use semantic tags like `<header>`, `<nav>`, `<main>`, `<article>`, `<section>`, and `<footer>` to give meaning to your layout. Search engines and screen readers rely on these.
+
+=== assignment_prompt ===
+Create a personal profile page using semantic HTML. Include:
+- A `<header>` with your name in an `<h1>`
+- A `<nav>` with 3 links
+- A `<main>` section with an `<article>` about yourself
+- An `<img>` tag (use any placeholder URL)
+- An ordered list of your top 3 skills
+- A `<footer>` with a copyright notice
+
+=== starter_code ===
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile</title>
+</head>
+<body>
+  <!-- Build your profile page here -->
+  
+</body>
+</html>
+
+=== language ===
+html
+
+=== assignment_type ===
+code
+

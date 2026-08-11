@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-deep-blue: #2236A8;
+  --brand-primary: #2F67C7;
+  --brand-cyan: #32D3E6;
+  --brand-teal: #22C7D4;
+  --brand-purple: #8A2BBE;
+  --brand-magenta: #D21D8E;
+  --brand-pink: #F02B8F;
+  --brand-navy: #1B237A;
+}
+
+body {
+  font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  color: var(--brand-navy);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Glass morphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ── Capture deterrents for paid lesson content ───────────────────────────
+   Selection/copy is suppressed on protected regions, and the whole area is
+   removed from print output so "Save as PDF" produces nothing useful.
+   A screenshot still cannot be blocked by a browser — the watermark and
+   signed, expiring media URLs are what make a leak attributable. */
+.capture-guard,
+.capture-guard * {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Inputs and editors inside a guarded area must stay usable. */
+.capture-guard input,
+.capture-guard textarea,
+.capture-guard [contenteditable="true"],
+.capture-guard .monaco-editor,
+.capture-guard .monaco-editor * {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+.capture-guard video::-webkit-media-controls-enclosure {
+  overflow: hidden;
+}
+
+@media print {
+  .capture-guard {
+    display: none !important;
+  }
+  body::after {
+    content: "NOVA LABS course material cannot be printed.";
+    display: block;
+    padding: 40px;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+  }
+}

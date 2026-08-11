@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+.eggs/
+venv/
+.env
+.venv
+# SQLite — local databases hold real user data; never commit them
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+backend/backups/
+
+# Node
+node_modules/
+.next/
+out/
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploaded media (videos etc.)
+backend/uploads/
+
+# Flutter / mobile build output (Podfile.lock is intentionally tracked)
+mobile/build/
+mobile/android/build/
+mobile/android/.gradle/
+mobile/ios/Pods/
+mobile/.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies

@@ -1,0 +1,30 @@
+1: Setup & HTML Foundations | lang=html | type=code
+2: CSS Fundamentals & Layout | lang=html | type=code
+3: JavaScript Basics | lang=javascript | type=code
+4: Advanced JavaScript | lang=javascript | type=code
+5: Git & GitHub Workflow | lang=html | type=code
+6: React Basics | lang=javascript | type=code
+7: React Hooks | lang=javascript | type=code
+8: API Integration (Frontend) | lang=javascript | type=code
+9: UI Polishing & Responsiveness | lang=javascript | type=code
+10: FastAPI Basics | lang=python | type=code
+11: MongoDB Basics | lang=python | type=code
+12: Backend CRUD | lang=python | type=code
+13: Full-Stack Integration | lang=python | type=code
+14: Authentication System | lang=python | type=code
+15: Project 1 — Task Manager App | lang=javascript | type=project
+16: Project 2 — Notes / Blog App | lang=python | type=project
+17: Docker Fundamentals | lang=python | type=code
+18: Deployment | lang=python | type=code
+19: Resume & GitHub Optimisation | lang=python | type=code
+20: Project 3 — SaaS Dashboard | lang=python | type=project
+21: Advanced React Patterns | lang=javascript | type=code
+22: Testing Fundamentals | lang=javascript | type=code
+23: CI/CD Pipeline Basics | lang=python | type=code
+24: System Design Fundamentals | lang=python | type=code
+25: DSA for Interviews | lang=python | type=code
+26: Mock Interview Prep | lang=python | type=code
+27: LinkedIn & Professional Branding | lang=html | type=code
+28: Project 4 — Open Build | lang=javascript | type=project
+29: Peer Code Review + Feedback | lang=html | type=code
+30: Final Polish & Portfolio Completion | lang=html | type=code
