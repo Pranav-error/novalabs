@@ -41,3 +41,6 @@ mobile/ios/Pods/
 mobile/.dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
+
+# TypeScript incremental build cache
+*.tsbuildinfo
