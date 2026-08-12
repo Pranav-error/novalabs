@@ -173,6 +173,19 @@ async def verify_payment(
     if not order:
         raise HTTPException(status_code=404, detail="Order not found")
 
+    # A valid signature only proves Razorpay issued it for this order — not that
+    # the caller is the one who paid. Razorpay hands the triple to the payer's
+    # own browser, so without this check anyone who paid once could pass it to
+    # any number of fresh accounts and unlock them all. Confirmed exploitable
+    # against the deployed API before this guard existed.
+    if order.learner_id != user.id:
+        raise HTTPException(status_code=403, detail="Order does not belong to this account")
+
+    # Replay of the caller's own past payment: already-unlocked is not an error,
+    # but it must not re-run referral credits or coupon counters below.
+    if order.status == "paid":
+        return {"message": "Payment already verified. All 30 days unlocked!", "is_paid": True}
+
     order.status = "paid"
     order.razorpay_payment_id = req.payment_id
     order.paid_at = datetime.now(timezone.utc)
