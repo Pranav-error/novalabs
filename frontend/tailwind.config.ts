@@ -51,6 +51,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  // The lesson panel styles markdown with `prose prose-headings:… prose-code:…`.
+  // Without this plugin those classes are silently no-ops and preflight strips
+  // heading sizes, so every lesson renders as one flat wall of text.
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;
