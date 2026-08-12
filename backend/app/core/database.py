@@ -16,6 +16,17 @@ if not _is_sqlite:
         pool_recycle=1800,
         pool_pre_ping=True,
     )
+    # Transaction-mode poolers (Neon's `-pooler` host, PgBouncer, Supabase's
+    # 6543 port) hand a different backend to each transaction, so a prepared
+    # statement cached against one connection may not exist on the next. That
+    # surfaces as an intermittent "prepared statement __asyncpg_stmt_x__ does
+    # not exist" under concurrency rather than at startup, so disable the cache
+    # rather than wait to be surprised in production.
+    if "-pooler." in settings.DATABASE_URL or "pgbouncer=true" in settings.DATABASE_URL:
+        _engine_kwargs["connect_args"] = {
+            "statement_cache_size": 0,
+            "prepared_statement_cache_size": 0,
+        }
 
 engine = create_async_engine(settings.DATABASE_URL, **_engine_kwargs)
 async_session = async_sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)

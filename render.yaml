@@ -45,6 +45,13 @@ services:
       - key: FRONTEND_URL
         sync: false
 
+      # The frontend proxies the API under /api, so the refresh cookie must be
+      # scoped to the path the browser actually requests. Left at the default
+      # "/auth" it is stored but never sent, and every session dies at the
+      # first token refresh.
+      - key: REFRESH_COOKIE_PATH
+        value: "/api/auth"
+
       # Postgres connection string. Must use the asyncpg driver, e.g.
       #   postgresql+asyncpg://user:pass@host/db
       - key: DATABASE_URL

@@ -40,6 +40,10 @@ class Settings(BaseSettings):
 
     # Frontend
     FRONTEND_URL: str = "http://localhost:3000"
+    # Path the refresh cookie is scoped to. Must match the URL the browser
+    # requests: "/auth" when the frontend calls the API directly, "/api/auth"
+    # when it proxies under /api (as the Vercel deployment does).
+    REFRESH_COOKIE_PATH: str = "/auth"
 
     # Rate limits
     LOGIN_RATE_LIMIT: int = 5

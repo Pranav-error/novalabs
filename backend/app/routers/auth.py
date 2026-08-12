@@ -84,12 +84,18 @@ def _set_refresh_cookie(response: Response, token: str) -> None:
         secure=not settings.DEBUG,
         samesite="lax",
         max_age=settings.REFRESH_TOKEN_EXPIRE_DAYS * 86400,
-        path="/auth",
+        # Scoped so the token is only ever sent to the auth endpoints. The path
+        # must match the URL the *browser* requests, which is not the same as
+        # the route path when the frontend proxies the API under a prefix —
+        # hence the setting. A mismatch is silent: the cookie is stored and
+        # simply never sent, so sessions die at the first refresh.
+        path=settings.REFRESH_COOKIE_PATH,
     )
 
 
 def _clear_refresh_cookie(response: Response) -> None:
-    response.delete_cookie(key=REFRESH_COOKIE_NAME, path="/auth")
+    # Must match the path used to set it, or logout leaves the cookie behind.
+    response.delete_cookie(key=REFRESH_COOKIE_NAME, path=settings.REFRESH_COOKIE_PATH)
 
 
 async def _create_refresh_token(user_id: str, db: AsyncSession) -> str:
