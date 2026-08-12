@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import { Code2, Flame, Trophy } from "lucide-react";
+
+// Sign-in, password reset and email verification carry one-time tokens and
+// have no standalone search value. /signup stays indexable via its own page
+// metadata, since that is a real landing target for paid and organic traffic.
+export const metadata: Metadata = {
+  robots: { index: false, follow: true },
+};
 
 const HIGHLIGHTS = [
   { icon: Code2, text: "A real project to ship, every single day" },
@@ -13,7 +21,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
           so small screens would otherwise open straight into a bare form. */}
       <div className="lg:hidden flex items-center gap-2.5 px-5 pt-6 sm:px-8">
         <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-primary to-brand-cyan flex items-center justify-center flex-shrink-0">
-          <span className="text-white font-display font-bold text-base">M</span>
+          <span className="text-white font-display font-bold text-base">N</span>
         </div>
         <span className="font-display font-bold text-brand-navy text-base">NOVA LABS</span>
       </div>
@@ -31,7 +39,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
 
         <div className="relative z-10 text-center px-12 max-w-md">
           <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-brand-primary to-brand-cyan flex items-center justify-center mx-auto mb-8 shadow-xl shadow-brand-cyan/20">
-            <span className="text-white font-display font-bold text-3xl">M</span>
+            <span className="text-white font-display font-bold text-3xl">N</span>
           </div>
           <h2 className="font-display text-3xl font-bold text-white mb-4">NOVA LABS</h2>
           <p className="text-white/70 text-lg mb-10">

@@ -29,7 +29,7 @@ export default function Sidebar() {
       <div className="p-6">
         <Link href="/dashboard" className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-primary to-brand-cyan flex items-center justify-center">
-            <span className="text-white font-bold text-lg">M</span>
+            <span className="text-white font-bold text-lg">N</span>
           </div>
           <span className="text-xl font-bold text-brand-navy">NOVA LABS</span>
         </Link>

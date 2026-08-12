@@ -96,7 +96,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       {/* Brand */}
       <div className="relative flex items-center gap-2.5 px-5 py-5 border-b border-white/10 flex-shrink-0">
         <div className="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
-          <span className="font-display font-extrabold text-brand-cyan text-sm">M</span>
+          <span className="font-display font-extrabold text-brand-cyan text-sm">N</span>
         </div>
         <div className="min-w-0">
           <p className="font-display font-extrabold text-white text-base leading-none truncate">NOVA LABS</p>

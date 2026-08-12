@@ -111,7 +111,7 @@ class BrandBadge extends StatelessWidget {
   }
 }
 
-/// The "M" logo tile used on the site's auth branding panel
+/// The "N" logo tile used on the site's auth branding panel
 /// (gradient primary → cyan, rounded-2xl).
 class BrandLogoTile extends StatelessWidget {
   const BrandLogoTile({super.key, this.size = 64});
@@ -140,7 +140,7 @@ class BrandLogoTile extends StatelessWidget {
       ),
       alignment: Alignment.center,
       child: Text(
-        'M',
+        'N',
         style: TextStyle(
           color: Colors.white,
           fontWeight: FontWeight.w800,
